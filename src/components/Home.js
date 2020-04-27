@@ -18,7 +18,7 @@ const Home = ({ dates, data }) => {
       <Chart
         options={optionsList}
         series={data}
-        type="line"
+        type="area"
         height="400"
       />
     );
