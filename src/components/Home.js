@@ -3,17 +3,17 @@ import Chart from "react-apexcharts";
 
 const Home = ({ dates, data }) => {
     let optionsList = {
-          options: {
-            chart: {
-                id: "line"
-            },
-            xaxis: {
-                categories: [122, 222]
-            }
+        chart: {
+            id: "line",
+        },
+        xaxis: {
+            categories: dates
+        }, 
+        legend: {
+            position: 'top'
         }
     }
-    console.log("dates", dates)
-    console.log("data", data)
+    
     return(
       <Chart
         options={optionsList}
