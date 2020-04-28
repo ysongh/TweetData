@@ -1,10 +1,10 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-const Home = ({ dates, data }) => {
+const Area = ({ dates, data }) => {
     let optionsList = {
         chart: {
-            id: "line",
+            id: "area",
         },
         xaxis: {
             categories: dates
@@ -24,4 +24,4 @@ const Home = ({ dates, data }) => {
     );
 };
 
-export default Home;
+export default Area;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { getSampleData } from './api';
 
-import Home from './components/Home';
+import Area from './components/Area';
 
 class App extends Component{
   state = {
@@ -20,8 +20,8 @@ class App extends Component{
   render(){
     return (
       <>
-        <h1>Chart</h1>
-        <Home dates={this.state.resData.dates} data={this.state.resData.source} />
+        <h1>Tweet Data</h1>
+        <Area dates={this.state.resData.dates} data={this.state.resData.source} />
       </>
     );
   }
