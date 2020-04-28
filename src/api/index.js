@@ -12,6 +12,7 @@ export const getSampleData = async() => {
         const data4 = data.data.map(key => key.retail_and_recreation_percent_change_from_baseline);
         const data5 = data.data.map(key => key.transit_stations_percent_change_from_baseline);
         const data6 = data.data.map(key => key.workplaces_percent_change_from_baseline);
+        const data7 = data.data.map(key => key.volume);
 
         const dates = data.data.map(key => key.date)
 
@@ -43,6 +44,12 @@ export const getSampleData = async() => {
                 {
                     "name": "Workplaces",
                     "data": data6
+                }
+            ],
+            volume: [
+                {
+                    "name": "Volume",
+                    "data": data7
                 }
             ]
         }
