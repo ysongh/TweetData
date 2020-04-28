@@ -11,6 +11,19 @@ const Area = ({ dates, data }) => {
         }, 
         legend: {
             position: 'top'
+        },
+        title: {
+            text: "Percent Change From Baseline",
+            align: 'left',
+            margin: 10,
+            offsetX: 0,
+            offsetY: 0,
+            floating: false,
+            style: {
+              fontSize:  '20px',
+              fontWeight:  'bold',
+              color:  '#263238'
+            },
         }
     }
     
