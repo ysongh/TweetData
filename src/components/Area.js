@@ -8,12 +8,22 @@ const Area = ({ dates, data }) => {
         },
         xaxis: {
             categories: dates
-        }, 
+        },
+        yaxis: {
+            title: {
+                text: "Percent Change From Baseline"
+            },
+            min: -70,
+            max: 50,
+            labels: {
+                formatter: val => { return val + "%" }
+            }
+        },
         legend: {
             position: 'top'
         },
         title: {
-            text: "Percent Change From Baseline",
+            text: "USA",
             align: 'left',
             margin: 10,
             offsetX: 0,
@@ -24,6 +34,9 @@ const Area = ({ dates, data }) => {
               fontWeight:  'bold',
               color:  '#263238'
             },
+        },
+        dataLabels: {
+
         }
     }
     

@@ -8,12 +8,17 @@ const Line = ({ dates, data }) => {
         },
         xaxis: {
             categories: dates
-        }, 
+        },
+        yaxis: {
+          title: {
+              text: "Volume"
+          }
+        },
         legend: {
             position: 'top'
         },
         title: {
-            text: "Volume",
+            text: "USA",
             align: 'left',
             margin: 10,
             offsetX: 0,
