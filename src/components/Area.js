@@ -32,7 +32,7 @@ const Area = ({ dates, data }) => {
         options={optionsList}
         series={data}
         type="area"
-        height="400"
+        height="500"
       />
     );
 };

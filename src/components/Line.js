@@ -24,6 +24,9 @@ const Line = ({ dates, data }) => {
               fontWeight:  'bold',
               color:  '#263238'
             },
+        },
+        stroke: {
+          curve: 'smooth'
         }
     }
     
@@ -32,7 +35,7 @@ const Line = ({ dates, data }) => {
         options={optionsList}
         series={data}
         type="line"
-        height="400"
+        height="500"
       />
     );
 };
