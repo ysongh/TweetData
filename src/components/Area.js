@@ -5,6 +5,11 @@ const Area = ({ dates, data }) => {
     let optionsList = {
         chart: {
             id: "area",
+            toolbar: {
+                tools: {
+                    download: false,
+                }
+            }
         },
         xaxis: {
             categories: dates
