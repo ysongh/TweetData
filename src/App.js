@@ -13,7 +13,6 @@ class App extends Component{
     return (
       <Router>
         <Navbar />
-        <h1 className="center-align">Tweet Data</h1>
         <Route exact path="/" component={Charts} />
         <MapUS />
       </Router>

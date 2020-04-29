@@ -21,6 +21,7 @@ class Charts extends Component{
   render(){
     return (
       <div className="container">
+        <h1 className="center-align">Charts</h1>
         <Area dates={this.state.resData.dates} data={this.state.resData.source} />
         <Line dates={this.state.resData.dates} data={this.state.resData.volume} />
       </div>

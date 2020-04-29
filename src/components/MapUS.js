@@ -21,7 +21,9 @@ class MapUS extends Component{
 
     async componentDidMount(){
         const data = await getMapData();
-        console.log(data);
+
+        console.log(data)
+        
         this.setState({ data: data});
     }
 
@@ -30,6 +32,7 @@ class MapUS extends Component{
 
         return (
             <div className="container">
+                <h1 className="center-align">Map</h1>
                 <Map className="map" center={position} zoom={this.state.zoom}>
                     <TileLayer
                         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -37,7 +40,7 @@ class MapUS extends Component{
                     />
 
                     {this.state.data.map(i => {
-                        const cityPosition = [+i.ISO3166_1, i.LAT,];
+                        const cityPosition = [+i.ISO3166_1, i.LAT];
 
                         return (
                             <Marker key={i.index} position={cityPosition} icon={lIcon}>
