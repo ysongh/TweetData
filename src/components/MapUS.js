@@ -49,34 +49,37 @@ class MapUS extends Component{
             <div className="container">
                 <h1 className="center-align">Map</h1>
 
-                <div className="input-field col s12">
-                    <select value={this.state.country} onChange={(e) => this.onChangeCountry(e.target.value)}>
-                        <option value="all">Choose Country</option>
-                        <option value="United States">United States</option>
-                        <option value="China">China</option>
-                    </select>
-                    <label>Country</label>
+                <div className="row">
+                    <div className="col s12 m10">
+                        <Map className="map" center={position} zoom={this.state.zoom}>
+                            <TileLayer
+                                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            />
+
+                            {this.state.data.map(i => {
+                                const cityPosition = [+i.ISO3166_1, i.LAT];
+
+                                return (
+                                    <Marker key={i.index} position={cityPosition} icon={lIcon}>
+                                        <Popup>
+                                            <strong>Country</strong>: {i.COUNTRY_REGION} <br /> 
+                                            <strong>Province State</strong>: {i.PROVINCE_STATE}<br /> 
+                                        </Popup>
+                                    </Marker>
+                                )
+                            })}
+                        </Map>
+                    </div>
+                    <div className="col s12 m2">
+                        <label>Country</label>
+                        <select className="browser-default" value={this.state.country} onChange={(e) => this.onChangeCountry(e.target.value)}>
+                            <option value="all" selected>Choose Country</option>
+                            <option value="United States">United States</option>
+                            <option value="China">China</option>
+                        </select>
+                    </div>
                 </div>
-
-                <Map className="map" center={position} zoom={this.state.zoom}>
-                    <TileLayer
-                        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-
-                    {this.state.data.map(i => {
-                        const cityPosition = [+i.ISO3166_1, i.LAT];
-
-                        return (
-                            <Marker key={i.index} position={cityPosition} icon={lIcon}>
-                                <Popup>
-                                    <strong>Country</strong>: {i.COUNTRY_REGION} <br /> 
-                                    <strong>Province State</strong>: {i.PROVINCE_STATE}<br /> 
-                                </Popup>
-                            </Marker>
-                        )
-                    })}
-                </Map>
             </div>
         )
     }
