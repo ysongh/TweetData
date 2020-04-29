@@ -13,10 +13,11 @@ const lIcon = L.icon({
 
 class MapUS extends Component{
     state = {
-        lat: 40.0423477,
-        lng: -99.4082212,
-        zoom: 1,
-        data: []
+        lat: 36.6911074,
+        lng: 5.3220739,
+        zoom: 2,
+        data: [],
+        country: ""
     }
 
     async componentDidMount(){
@@ -27,12 +28,28 @@ class MapUS extends Component{
         this.setState({ data: data});
     }
 
+    onChangeCountry = async (country) => {
+        console.log(country)
+    
+        this.setState({ country: country });
+      }
+
     render(){
         const position = [this.state.lat, this.state.lng];
 
         return (
             <div className="container">
                 <h1 className="center-align">Map</h1>
+
+                <div className="input-field col s12">
+                    <select value={this.state.country} onChange={(e) => this.onChangeCountry(e.target.value)}>
+                        <option value="">Choose Country</option>
+                        <option value="United States">United States</option>
+                        <option value="China">China</option>
+                    </select>
+                    <label>Materialize Select</label>
+                </div>
+
                 <Map className="map" center={position} zoom={this.state.zoom}>
                     <TileLayer
                         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

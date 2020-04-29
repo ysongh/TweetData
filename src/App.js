@@ -14,7 +14,7 @@ class App extends Component{
       <Router>
         <Navbar />
         <Route exact path="/" component={Charts} />
-        <MapUS />
+        <Route exact path="/map" component={MapUS} />
       </Router>
     );
   }
