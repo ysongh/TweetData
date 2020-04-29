@@ -14,3 +14,7 @@ h1{
 .container{
     margin: 1rem;
 }
+
+.map{
+    height: 500px;
+}

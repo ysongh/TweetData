@@ -4,6 +4,7 @@ import { getSampleData } from './api';
 
 import Area from './components/Area';
 import Line from './components/Line';
+import MapUS from './components/MapUS';
 
 class App extends Component{
   state = {
@@ -23,6 +24,7 @@ class App extends Component{
     return (
       <div className="container">
         <h1>Tweet Data</h1>
+        <MapUS />
         <Area dates={this.state.resData.dates} data={this.state.resData.source} />
         <Line dates={this.state.resData.dates} data={this.state.resData.volume} />
       </div>
