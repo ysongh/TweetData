@@ -33,6 +33,8 @@ class MapUS extends Component{
 
     onChangeCountry = async (country) => {
         const data = await getMapData(country);
+
+        console.log(data);
     
         this.setState({
             lat: data.currentCoordinates.lat,
@@ -50,18 +52,26 @@ class MapUS extends Component{
                 <h1 className="center-align">Map</h1>
 
                 <div className="row">
-                    <div className="col s12 m10">
+                    <div className="col s12">
+                        <label>Country</label>
+                        <select className="browser-default" value={this.state.country} onChange={(e) => this.onChangeCountry(e.target.value)}>
+                            <option value="all" disabled selected>Choose Country</option>
+                            <option value="US">United States</option>
+                            <option value="Mainland China">China</option>
+                        </select>
+                    </div>
+                    <div className="col s12">
                         <Map className="map" center={position} zoom={this.state.zoom}>
                             <TileLayer
                                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             />
 
-                            {this.state.data.map(i => {
+                            {this.state.data.map((i, key) => {
                                 const cityPosition = [i.latitude, i.longitude];
 
                                 return (
-                                    <Marker key={i.index} position={cityPosition} icon={lIcon}>
+                                    <Marker key={key} position={cityPosition} icon={lIcon}>
                                         <Popup>
                                             <strong>Province State</strong>: {i.province_state}<br /> 
                                             <strong>Confirmed</strong>: {i.confirmed} <br /> 
@@ -72,14 +82,6 @@ class MapUS extends Component{
                                 )
                             })}
                         </Map>
-                    </div>
-                    <div className="col s12 m2">
-                        <label>Country</label>
-                        <select className="browser-default" value={this.state.country} onChange={(e) => this.onChangeCountry(e.target.value)}>
-                            <option value="all" selected>Choose Country</option>
-                            <option value="US">United States</option>
-                            <option value="Mainland China">China</option>
-                        </select>
                     </div>
                 </div>
             </div>
