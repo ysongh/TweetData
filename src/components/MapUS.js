@@ -17,7 +17,8 @@ class MapUS extends Component{
         lng: 5.3220739,
         zoom: 2,
         data: [],
-        country: "all"
+        country: "all",
+        date: "2020-03-09"
     }
 
     async componentDidMount(){
@@ -32,7 +33,7 @@ class MapUS extends Component{
     }
 
     onChangeCountry = async (country) => {
-        const data = await getMapData(country);
+        const data = await getMapData(country, this.state.date);
 
         console.log(data);
     
@@ -40,9 +41,24 @@ class MapUS extends Component{
             lat: data.currentCoordinates.lat,
             lng: data.currentCoordinates.lng,
             zoom: data.currentCoordinates.zoom,
-            data: data.data
+            data: data.data,
+            country: country
         });
       }
+
+    onChangeDate = async (date) => {
+        const data = await getMapData(this.state.country, date);
+
+        console.log(data);
+
+        this.setState({
+            lat: data.currentCoordinates.lat,
+            lng: data.currentCoordinates.lng,
+            zoom: data.currentCoordinates.zoom,
+            data: data.data,
+            date: date
+        });
+    }
 
     render(){
         const position = [this.state.lat, this.state.lng];
@@ -52,12 +68,20 @@ class MapUS extends Component{
                 <h1 className="center-align">Map</h1>
 
                 <div className="row">
-                    <div className="col s12">
+                    <div className="col s6">
                         <label>Country</label>
                         <select className="browser-default" defaultValue={this.state.country} onChange={(e) => this.onChangeCountry(e.target.value)}>
                             <option value="all">Choose Country</option>
                             <option value="US">United States</option>
                             <option value="Mainland China">China</option>
+                        </select>
+                    </div>
+                    <div className="col s6">
+                        <label>Date</label>
+                        <select className="browser-default" defaultValue={this.state.date} onChange={(e) => this.onChangeDate(e.target.value)}>
+                            <option value="2020-03-09">Choose Date</option>
+                            <option value="2020-03-10">2020-03-10</option>
+                            <option value="2020-03-11">2020-03-20</option>
                         </select>
                     </div>
                     <div className="col s12">

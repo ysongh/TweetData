@@ -77,11 +77,11 @@ export const getSampleData = async() => {
     }
 }
 
-export const getMapData = async(country) => {
+export const getMapData = async(country, date) => {
     try{
         const {data} = await axios.get(url2);
 
-        const resData = data.data.filter(key => key.longitude && key.latitude && key.country_region === country && key.date === "2020-03-09");
+        const resData = data.data.filter(key => key.longitude && key.latitude && key.country_region === country && key.date === date);
         
         return {
             "currentCoordinates": countryCoordinates[country],
