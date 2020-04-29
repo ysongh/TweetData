@@ -62,7 +62,9 @@ export const getMapData = async() => {
     try{
         const {data} = await axios.get(url2);
 
-        console.log(data.data);
+        const usData = data.data.filter(key => key.CASE_TYPE === "Deaths"  && key.DATE === "2020-03-10");
+
+        return usData;
     }
     catch(error){
         console.log(error);
