@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { getSampleData } from './api';
 
+import 'leaflet/dist/leaflet.css';
+
 import Area from './components/Area';
 import Line from './components/Line';
 import MapUS from './components/MapUS';

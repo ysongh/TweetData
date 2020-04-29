@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-const url = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/sample_data_for_mockup.json";
+const url1 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/sample_data_for_mockup.json";
+const url2 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/sample_jhu_data_for_mockup.json";
 
 export const getSampleData = async() => {
     try{
-        const {data} = await axios.get(url);
+        const {data} = await axios.get(url1);
 
         const data1 = data.data.map(key => key.grocery_and_pharmacy_percent_change_from_baseline);
         const data2 = data.data.map(key => key.parks_percent_change_from_baseline);
@@ -15,8 +16,6 @@ export const getSampleData = async() => {
         const data7 = data.data.map(key => key.volume);
 
         const dates = data.data.map(key => key.date)
-
-        console.log(data);
 
         return {
             dates: dates,
@@ -53,6 +52,17 @@ export const getSampleData = async() => {
                 }
             ]
         }
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+export const getMapData = async() => {
+    try{
+        const {data} = await axios.get(url2);
+
+        console.log(data.data);
     }
     catch(error){
         console.log(error);
