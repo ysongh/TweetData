@@ -95,6 +95,23 @@ export const getMapData = async(country) => {
 
 export const tweetData = () => {
     console.log(allData)
-
-    //console.log(JSON.stringify(allData));
 }
+/*
+const removeProperty = obj => {
+    const newObj = obj.map(i => {
+        if(i.ayoikutiaturan){
+            console.log(i.ayoikutiaturan)
+        }
+        delete i.country_region_code;
+        delete i.parks_percent_change_from_baseline;
+        delete i.grocery_and_pharmacy_percent_change_from_baseline;
+        delete i.residential_percent_change_from_baseline;
+        delete i.retail_and_recreation_percent_change_from_baseline;
+        delete i.transit_stations_percent_change_from_baseline;
+        delete i.workplaces_percent_change_from_baseline;
+        return i;
+    });
+
+    return newObj;
+}
+*/
