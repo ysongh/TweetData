@@ -4,13 +4,15 @@ import './App.css';
 
 import 'leaflet/dist/leaflet.css';
 
-import Charts from './components/Charts/Charts';
+import Navbar from './components/layout/Navbar';
+import Charts from './components/charts/Charts';
 import MapUS from './components/MapUS';
 
 class App extends Component{
   render(){
     return (
       <Router>
+        <Navbar />
         <h1 className="center-align">Tweet Data</h1>
         <Route exact path="/" component={Charts} />
         <MapUS />

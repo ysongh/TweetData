@@ -20,7 +20,7 @@ class Charts extends Component{
 
   render(){
     return (
-      <div>
+      <div className="container">
         <Area dates={this.state.resData.dates} data={this.state.resData.source} />
         <Line dates={this.state.resData.dates} data={this.state.resData.volume} />
       </div>
