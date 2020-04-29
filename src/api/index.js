@@ -1,4 +1,5 @@
 import axios from 'axios';
+import allData from './sample_data_for_mockup';
 
 const url1 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/b8ad9f5a1c4091ca7e79a0c5f09e550b17194202/data/sample_data_for_mockup.json";
 const url2 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/1f5720396ad531e305fe3793b4c243a414533788/data/sample_jhu_data_for_mockup.json";
@@ -90,4 +91,10 @@ export const getMapData = async(country) => {
     catch(error){
         console.log(error);
     }
+}
+
+export const tweetData = () => {
+    console.log(allData)
+
+    //console.log(JSON.stringify(allData));
 }
