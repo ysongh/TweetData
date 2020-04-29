@@ -54,8 +54,8 @@ class MapUS extends Component{
                 <div className="row">
                     <div className="col s12">
                         <label>Country</label>
-                        <select className="browser-default" value={this.state.country} onChange={(e) => this.onChangeCountry(e.target.value)}>
-                            <option value="all" disabled selected>Choose Country</option>
+                        <select className="browser-default" defaultValue={this.state.country} onChange={(e) => this.onChangeCountry(e.target.value)}>
+                            <option value="all">Choose Country</option>
                             <option value="US">United States</option>
                             <option value="Mainland China">China</option>
                         </select>
