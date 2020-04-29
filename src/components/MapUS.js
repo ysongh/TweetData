@@ -33,6 +33,8 @@ class MapUS extends Component{
 
     onChangeCountry = async (country) => {
         const data = await getMapData(country);
+
+        console.log(data);
     
         this.setState({
             lat: data.currentCoordinates.lat,
@@ -58,13 +60,15 @@ class MapUS extends Component{
                             />
 
                             {this.state.data.map(i => {
-                                const cityPosition = [+i.ISO3166_1, i.LAT];
+                                const cityPosition = [i.latitude, i.longitude];
 
                                 return (
                                     <Marker key={i.index} position={cityPosition} icon={lIcon}>
                                         <Popup>
-                                            <strong>Country</strong>: {i.COUNTRY_REGION} <br /> 
-                                            <strong>Province State</strong>: {i.PROVINCE_STATE}<br /> 
+                                            <strong>Province State</strong>: {i.province_state}<br /> 
+                                            <strong>Confirmed</strong>: {i.confirmed} <br /> 
+                                            <strong>Death</strong>: {i.death_cnt} <br /> 
+                                            <strong>Recovered</strong>: {i.recovered} <br /> 
                                         </Popup>
                                     </Marker>
                                 )
@@ -75,8 +79,8 @@ class MapUS extends Component{
                         <label>Country</label>
                         <select className="browser-default" value={this.state.country} onChange={(e) => this.onChangeCountry(e.target.value)}>
                             <option value="all" selected>Choose Country</option>
-                            <option value="United States">United States</option>
-                            <option value="China">China</option>
+                            <option value="US">United States</option>
+                            <option value="Mainland China">China</option>
                         </select>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const url1 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/sample_data_for_mockup.json";
-const url2 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/sample_jhu_data_for_mockup.json";
+const url1 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/b8ad9f5a1c4091ca7e79a0c5f09e550b17194202/data/sample_data_for_mockup.json";
+const url2 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/1f5720396ad531e305fe3793b4c243a414533788/data/sample_jhu_data_for_mockup.json";
 
 const countryCoordinates = {
     "all": {
@@ -9,12 +9,12 @@ const countryCoordinates = {
         lng: 5.3220739,
         zoom: 2
     },
-    "United States": {
+    "US": {
         lat: 40.0423477,
         lng: -99.4082212,
         zoom: 4
     },
-    "China": {
+    "Mainland China": {
         lat: 34.3773575,
         lng: 107.0089618,
         zoom: 4
@@ -79,11 +79,10 @@ export const getSampleData = async() => {
 export const getMapData = async(country) => {
     try{
         const {data} = await axios.get(url2);
+        console.log(data.data.map(key => key.country_region));
 
-        console.log(country)
-
-        const resData = data.data.filter(key => key.COUNTRY_REGION === country && key.CASE_TYPE === "Deaths"  && key.DATE === "2020-03-22");
-
+        const resData = data.data.filter(key => key.longitude && key.latitude && key.country_region === country && key.date === "2020-03-09");
+        
         return {
             "currentCoordinates": countryCoordinates[country],
             "data": resData
