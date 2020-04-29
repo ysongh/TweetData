@@ -22,8 +22,12 @@ class Charts extends Component{
     return (
       <div className="container">
         <h1 className="center-align">Charts</h1>
-        <Area dates={this.state.resData.dates} data={this.state.resData.source} />
+        <Area dates={this.state.resData.dates} data={this.state.resData.source} type="area" />
         <Line dates={this.state.resData.dates} data={this.state.resData.volume} />
+        <Area dates={this.state.resData.dates} data={this.state.resData.source} type="radar" />
+        <Area dates={this.state.resData.dates} data={this.state.resData.source} type="bar" />
+        <Area dates={this.state.resData.dates} data={this.state.resData.source} type="scatter" />
+        <Area dates={this.state.resData.dates} data={this.state.resData.source} type="heatmap" />
       </div>
     );
   }

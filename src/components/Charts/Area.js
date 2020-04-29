@@ -1,7 +1,7 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-const Area = ({ dates, data }) => {
+const Area = ({ dates, data, type }) => {
     let optionsList = {
         chart: {
             id: "area",
@@ -49,7 +49,7 @@ const Area = ({ dates, data }) => {
       <Chart
         options={optionsList}
         series={data}
-        type="area"
+        type={type}
         height="500"
       />
     );
