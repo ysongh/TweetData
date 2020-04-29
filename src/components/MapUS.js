@@ -17,21 +17,29 @@ class MapUS extends Component{
         lng: 5.3220739,
         zoom: 2,
         data: [],
-        country: ""
+        country: "all"
     }
 
     async componentDidMount(){
-        const data = await getMapData();
-
-        console.log(data)
+        const data = await getMapData("all");
         
-        this.setState({ data: data});
+        this.setState({
+            lat: data.currentCoordinates.lat,
+            lng: data.currentCoordinates.lng,
+            zoom: data.currentCoordinates.zoom,
+            data: data.data
+        });
     }
 
     onChangeCountry = async (country) => {
-        console.log(country)
+        const data = await getMapData(country);
     
-        this.setState({ country: country });
+        this.setState({
+            lat: data.currentCoordinates.lat,
+            lng: data.currentCoordinates.lng,
+            zoom: data.currentCoordinates.zoom,
+            data: data.data
+        });
       }
 
     render(){
@@ -43,11 +51,11 @@ class MapUS extends Component{
 
                 <div className="input-field col s12">
                     <select value={this.state.country} onChange={(e) => this.onChangeCountry(e.target.value)}>
-                        <option value="">Choose Country</option>
+                        <option value="all">Choose Country</option>
                         <option value="United States">United States</option>
                         <option value="China">China</option>
                     </select>
-                    <label>Materialize Select</label>
+                    <label>Country</label>
                 </div>
 
                 <Map className="map" center={position} zoom={this.state.zoom}>

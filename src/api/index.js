@@ -3,6 +3,24 @@ import axios from 'axios';
 const url1 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/sample_data_for_mockup.json";
 const url2 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/sample_jhu_data_for_mockup.json";
 
+const countryCoordinates = {
+    "all": {
+        lat: 36.6911074,
+        lng: 5.3220739,
+        zoom: 2
+    },
+    "United States": {
+        lat: 40.0423477,
+        lng: -99.4082212,
+        zoom: 4
+    },
+    "China": {
+        lat: 34.3773575,
+        lng: 107.0089618,
+        zoom: 4
+    }
+}
+
 export const getSampleData = async() => {
     try{
         const {data} = await axios.get(url1);
@@ -58,13 +76,18 @@ export const getSampleData = async() => {
     }
 }
 
-export const getMapData = async() => {
+export const getMapData = async(country) => {
     try{
         const {data} = await axios.get(url2);
 
-        const usData = data.data.filter(key => key.CASE_TYPE === "Deaths"  && key.DATE === "2020-03-22");
+        console.log(country)
 
-        return usData;
+        const resData = data.data.filter(key => key.COUNTRY_REGION === country && key.CASE_TYPE === "Deaths"  && key.DATE === "2020-03-22");
+
+        return {
+            "currentCoordinates": countryCoordinates[country],
+            "data": resData
+        }
     }
     catch(error){
         console.log(error);
