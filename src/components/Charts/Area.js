@@ -11,6 +11,9 @@ const Area = ({ dates, data, type }) => {
                 }
             }
         },
+        dataLabels: {
+            enabled: false
+        },
         xaxis: {
             categories: dates
         },
@@ -39,9 +42,6 @@ const Area = ({ dates, data, type }) => {
               fontWeight:  'bold',
               color:  '#263238'
             },
-        },
-        dataLabels: {
-
         }
     }
     

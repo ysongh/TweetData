@@ -33,8 +33,6 @@ class MapUS extends Component{
 
     onChangeCountry = async (country) => {
         const data = await getMapData(country);
-
-        console.log(data);
     
         this.setState({
             lat: data.currentCoordinates.lat,
