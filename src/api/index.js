@@ -105,6 +105,25 @@ export const getMapData = async(country, date) => {
     }
 }
 
+export const getTypeAllData = async (url) => {
+    try{
+        const {data} = await axios.get(url);
+        const dates = data.data.map(i => i.date);
+
+        const values = data.data.map(i => {
+            const arr = [i];
+            const {total} = objectToArray(arr);
+
+            return total;
+        })
+
+        return {dates, values};
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
 export const getTypeData = async (url, date) => {
     try{
         const {data} = await axios.get(url);

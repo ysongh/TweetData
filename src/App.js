@@ -5,7 +5,8 @@ import './App.css';
 import 'leaflet/dist/leaflet.css';
 
 import Navbar from './components/layout/Navbar';
-import Charts from './components/charts/Charts';
+import Home from './components/Home';
+//import Charts from './components/charts/Charts';
 import MapUS from './components/MapUS';
 import Symptom from './components/Symptom';
 import Term from './components/Term';
@@ -17,7 +18,7 @@ class App extends Component{
     return (
       <Router>
         <Navbar />
-        <Route exact path="/" component={Charts} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/map" component={MapUS} />
         <Route exact path="/symptom" component={Symptom} />
         <Route exact path="/term" component={Term} />

@@ -1,3 +1,4 @@
+// note - the input is an array with one object
 export const objectToArray =  (newData) => {
     let total = 0;
     // remove the date from the object

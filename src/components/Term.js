@@ -13,8 +13,8 @@ class Term extends Component{
       values: [],
       dates: [],
       date: "2020-03-12"
-
   }
+  
   async componentDidMount(){
     const {top5, list, labels, values, dates} = await getTypeData(url, this.state.date);
 

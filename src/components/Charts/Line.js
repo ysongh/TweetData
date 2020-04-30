@@ -2,7 +2,8 @@ import React from 'react';
 import Chart from "react-apexcharts";
 
 const Line = ({ dates, data }) => {
-  let optionsList = {
+  console.log({ dates, data })
+  const optionsList = {
     chart: {
         id: "line",
         toolbar: {
@@ -40,11 +41,18 @@ const Line = ({ dates, data }) => {
       }
     }
 
+    const seriesList = [
+      {
+        name: "Volume",
+        data: data
+      }
+    ]
+
     return(
       <Chart
         options={optionsList}
-        series={data}
-        type="line"
+        series={seriesList}
+        type="area"
         height="500"
       />
     );
