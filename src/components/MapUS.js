@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import Icon from '../assets/icon1.svg';
+import IconBlue from '../assets/icon1.svg';
+import IconRed from '../assets/icon2.svg';
 
 import { getMapData } from '../api';
 
-const lIcon = L.icon({
-    iconUrl: Icon,
-    iconRetinaUrl: Icon,
+const blueIcon = L.icon({
+    iconUrl: IconBlue,
+    iconRetinaUrl: IconBlue,
     iconSize: [25, 41],
     popupAnchor: [0, -10]
-})
+});
+
+const redIcon = L.icon({
+    iconUrl: IconRed,
+    iconRetinaUrl: IconRed,
+    iconSize: [25, 41],
+    popupAnchor: [0, -10]
+});
 
 class MapUS extends Component{
     state = {
@@ -95,7 +103,7 @@ class MapUS extends Component{
                                 const cityPosition = [i.latitude, i.longitude];
 
                                 return (
-                                    <Marker key={key} position={cityPosition} icon={lIcon}>
+                                    <Marker key={key} position={cityPosition} icon={i.confirmed > 1000 ? redIcon : blueIcon}>
                                         <Popup>
                                             <strong>Province State</strong>: {i.province_state}<br /> 
                                             <strong>Confirmed</strong>: {i.confirmed} <br /> 
