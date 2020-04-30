@@ -17,13 +17,16 @@ const Navbar = () => {
                                 <Link to="/">Home</Link>
                             </li>
                             <li>
-                                <Link to="/map">Map</Link>
-                            </li>
-                            <li>
                                 <Link to="/symptom">Symptom</Link>
                             </li>
                             <li>
                                 <Link to="/tweet">Tweet</Link>
+                            </li>
+                            <li>
+                                <Link to="/hashTag">HashTag</Link>
+                            </li>
+                            <li>
+                                <Link to="/map">Map</Link>
                             </li>
                         </ul>
                     </div>
@@ -35,13 +38,16 @@ const Navbar = () => {
                     <Link to="/">Home</Link>
                 </li>
                 <li className="sidenav-close">
-                    <Link to="/map">Map</Link>
-                </li>
-                <li className="sidenav-close">
                     <Link to="/symptom">Symptom</Link>
                 </li>
                 <li className="sidenav-close">
                     <Link to="/tweet">Tweet</Link>
+                </li>
+                <li className="sidenav-close">
+                    <Link to="/hashTag">HashTag</Link>
+                </li>
+                <li className="sidenav-close">
+                    <Link to="/map">Map</Link>
                 </li>
             </ul>
         </div>
