@@ -7,6 +7,7 @@ import 'leaflet/dist/leaflet.css';
 import Navbar from './components/layout/Navbar';
 import Charts from './components/charts/Charts';
 import MapUS from './components/MapUS';
+import Symptom from './components/Symptom';
 import Tweet from './components/Tweet';
 
 class App extends Component{
@@ -16,6 +17,7 @@ class App extends Component{
         <Navbar />
         <Route exact path="/" component={Charts} />
         <Route exact path="/map" component={MapUS} />
+        <Route exact path="/symptom" component={Symptom} />
         <Route exact path="/tweet" component={Tweet} />
       </Router>
     );

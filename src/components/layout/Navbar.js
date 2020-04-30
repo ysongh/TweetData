@@ -20,6 +20,9 @@ const Navbar = () => {
                                 <Link to="/map">Map</Link>
                             </li>
                             <li>
+                                <Link to="/symptom">Symptom</Link>
+                            </li>
+                            <li>
                                 <Link to="/tweet">Tweet</Link>
                             </li>
                         </ul>
@@ -33,6 +36,9 @@ const Navbar = () => {
                 </li>
                 <li className="sidenav-close">
                     <Link to="/map">Map</Link>
+                </li>
+                <li className="sidenav-close">
+                    <Link to="/symptom">Symptom</Link>
                 </li>
                 <li className="sidenav-close">
                     <Link to="/tweet">Tweet</Link>
