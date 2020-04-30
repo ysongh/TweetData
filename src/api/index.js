@@ -119,11 +119,16 @@ export const symptomData = async () => {
         let dataAr = new Map(Object.entries(newData));
         dataAr = Object.fromEntries(dataAr);
         for(let i in dataAr[0]){
-            list.push({
-                name: i,
-                value: dataAr[0][i]
-            })
+            // only show symptom that does not have value that are null
+            if(dataAr[0][i]){
+                list.push({
+                    name: i,
+                    value: dataAr[0][i]
+                })
+            }
         }
+
+        list.sort((a, b) => b.value - a.value);
 
         return list;
 
