@@ -111,7 +111,21 @@ export const symptomData = async () => {
 
         const newData = data.data.filter(key => key.date === "2020-03-12");
 
-        return newData;
+        // remove the date from the object
+        delete newData[0].date;
+
+        // convert object into array of ojects
+        const list = [];
+        let dataAr = new Map(Object.entries(newData));
+        dataAr = Object.fromEntries(dataAr);
+        for(let i in dataAr[0]){
+            list.push({
+                name: i,
+                value: dataAr[0][i]
+            })
+        }
+
+        return list;
 
     }
     catch(error){

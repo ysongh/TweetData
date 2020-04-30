@@ -7,32 +7,25 @@ class Symptom extends Component{
   }
   async componentDidMount(){
     const data = await symptomData();
-    delete data[0].date;
 
-    const list = [];
-    let dataAr = new Map(Object.entries(data));
-    dataAr = Object.fromEntries(dataAr);
-    for(let i in dataAr[0]){
-        list.push({
-            name: i,
-            value: dataAr[0][i]
-        })
-    }
-
-    this.setState({ data: list});
+    this.setState({ data: data});
   }
 
   render(){
     return (
       <div className="container">
         <h1 className="center-align">Symptom</h1>
-        {this.state.data ? this.state.data.map((i) => {
-            return (
-                <div className="chip" key={i.name}>
-                    {i.name} {i.value}
-                </div>
-            )
-        }) : null}
+        <div className="card">
+            <div className="card-content">
+                {this.state.data ? this.state.data.map((i) => {
+                    return (
+                        <div className="chip" key={i.name}>
+                            {i.name} {i.value}
+                        </div>
+                    )
+                }) : null}
+            </div>
+        </div>
       </div>
     );
   }
