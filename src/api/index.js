@@ -109,28 +109,9 @@ export const symptomData = async (date) => {
         const {data} = await axios.get(url3);
 
         const dates = data.data.map(i => i.date);
-
         const newData = data.data.filter(key => key.date === date);
 
-        let total = 0;
-
-        // remove the date from the object
-        delete newData[0].date;
-
-        // convert object into array of ojects
-        const list = [];
-        let dataAr = new Map(Object.entries(newData));
-        dataAr = Object.fromEntries(dataAr);
-        for(let i in dataAr[0]){
-            // only show symptom that does not have value that are null
-            if(dataAr[0][i]){
-                total += dataAr[0][i];
-                list.push({
-                    name: i,
-                    value: dataAr[0][i]
-                })
-            }
-        }
+        let {total, list} = objectToArray(newData);
 
         list.sort((a, b) => b.value - a.value);
 
@@ -156,6 +137,29 @@ export const tweetData = async () => {
     catch(error){
         console.log(error);
     }
+}
+
+const objectToArray =  (newData) => {
+    let total = 0;
+    // remove the date from the object
+    delete newData[0].date;
+
+    // convert object into array of ojects
+    const list = [];
+    let dataAr = new Map(Object.entries(newData));
+    dataAr = Object.fromEntries(dataAr);
+    for(let i in dataAr[0]){
+        // only show symptom that does not have value that are null
+        if(dataAr[0][i]){
+            total += dataAr[0][i];
+            list.push({
+                name: i,
+                value: dataAr[0][i]
+            })
+        }
+    }
+
+    return {total, list};
 }
 
 const donutData = (top5, total) => {
