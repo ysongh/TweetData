@@ -8,19 +8,32 @@ class Symptom extends Component{
       data: [],
       top5: [],
       labels: [],
-      values: []
+      values: [],
+      dates: [],
+      date: "2020-03-12"
 
   }
   async componentDidMount(){
-    const {top5, list, labels, values} = await symptomData();
+    const {top5, list, labels, values, dates} = await symptomData(this.state.date);
 
-    this.setState({ data: list, top5: top5, labels: labels, values: values });
+    this.setState({ data: list, top5: top5, labels: labels, values: values, dates: dates });
   }
 
   render(){
     return (
       <div className="container">
         <h1 className="center-align">Symptom</h1>
+        <div className="row">
+            <div className="col s12 m6 ">
+                <label>Select Date</label>
+                <select className="browser-default" defaultValue={this.state.date}>
+                    <option value="2020-03-12">2020-03-12</option>
+                    {this.state.dates.map(i => {
+                        return <option key={i} value={i}>{i}</option>
+                    })}
+                </select>
+            </div>
+        </div>
         <div className="row">
             <div className="card col s12 m6">
                 <ul className="collection with-header">

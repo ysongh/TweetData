@@ -104,13 +104,13 @@ export const getMapData = async(country, date) => {
     }
 }
 
-export const symptomData = async () => {
+export const symptomData = async (date) => {
     try{
         const {data} = await axios.get(url3);
 
-        console.log(data);
+        const dates = data.data.map(i => i.date);
 
-        const newData = data.data.filter(key => key.date === "2020-03-12");
+        const newData = data.data.filter(key => key.date === date);
 
         let total = 0;
 
@@ -138,7 +138,7 @@ export const symptomData = async () => {
 
         let { labels, values } = donutData(top5, total);
 
-        return {top5, list, labels, values};
+        return {top5, list, labels, values, dates};
 
     }
     catch(error){
