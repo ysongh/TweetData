@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { symptomData } from '../api';
 
+import Donut from './charts/Donut';
+
 class Symptom extends Component{
   state = {
       data: [],
@@ -28,6 +30,11 @@ class Symptom extends Component{
                         )
                     }) : null}
                 </ul>
+            </div>
+            <div className="card col s12 m6">
+                <div className="card-content">
+                    <Donut />
+                </div>
             </div>
             <div className="card col s12">
                 <div className="card-content">
