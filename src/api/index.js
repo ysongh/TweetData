@@ -111,6 +111,8 @@ export const symptomData = async () => {
 
         const newData = data.data.filter(key => key.date === "2020-03-12");
 
+        let total = 0;
+
         // remove the date from the object
         delete newData[0].date;
 
@@ -121,6 +123,7 @@ export const symptomData = async () => {
         for(let i in dataAr[0]){
             // only show symptom that does not have value that are null
             if(dataAr[0][i]){
+                total += dataAr[0][i];
                 list.push({
                     name: i,
                     value: dataAr[0][i]
@@ -132,7 +135,9 @@ export const symptomData = async () => {
 
         const top5 = list.slice(0, 5);
 
-        return {top5, list};
+        let arr = donutData(top5, total);
+
+        return {top5, list, arr};
 
     }
     catch(error){
@@ -151,6 +156,21 @@ export const tweetData = async () => {
         console.log(error);
     }
 }
+
+const donutData = (top5, total) => {
+    let count = 0;
+    let arr = [];
+
+    for(let i of top5){
+        count += i.value;
+        arr.push(i.value);
+    }
+
+    arr.unshift(total - count);
+
+    return arr;
+}
+
 /*
 const removeProperty = obj => {
     const newObj = obj.map(i => {

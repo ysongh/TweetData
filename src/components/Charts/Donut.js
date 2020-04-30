@@ -1,7 +1,7 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-const Donut = () => {
+const Donut = ({ arr }) => {
     let optionsList = {
         chart: {
             id: "area",
@@ -14,7 +14,7 @@ const Donut = () => {
     return(
       <Chart
         options={optionsList}
-        series={[44, 55, 41, 17, 15]}
+        series={arr}
         type="donut"
         height="285"
       />

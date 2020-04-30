@@ -6,12 +6,13 @@ import Donut from './charts/Donut';
 class Symptom extends Component{
   state = {
       data: [],
-      top5: []
+      top5: [],
+      arr: []
   }
   async componentDidMount(){
-    const {top5, list} = await symptomData();
+    const {top5, list, arr} = await symptomData();
 
-    this.setState({ data: list, top5: top5});
+    this.setState({ data: list, top5: top5, arr: arr });
   }
 
   render(){
@@ -24,7 +25,7 @@ class Symptom extends Component{
                     <li className="collection-header"><h4>Top 5 Symptom</h4></li>
                     {this.state.top5 ? this.state.top5.map((i) => {
                         return (
-                            <li className="collection-item">
+                            <li className="collection-item" key={i.name}>
                                 <span>{i.name.toUpperCase()}</span><span className="right">{i.value}</span>
                             </li>
                         )
@@ -33,7 +34,7 @@ class Symptom extends Component{
             </div>
             <div className="card col s12 m6">
                 <div className="card-content">
-                    <Donut />
+                    <Donut arr={this.state.arr}/>
                 </div>
             </div>
             <div className="card col s12">
