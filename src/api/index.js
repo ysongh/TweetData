@@ -19,7 +19,12 @@ const countryCoordinates = {
         lat: 34.3773575,
         lng: 107.0089618,
         zoom: 4
-    }
+    },
+    "Australia": {
+        lat: -28.4948235,
+        lng: 134.2207814,
+        zoom: 4
+    },
 }
 
 export const getSampleData = async() => {
@@ -80,8 +85,14 @@ export const getSampleData = async() => {
 export const getMapData = async(country, date) => {
     try{
         const {data} = await axios.get(url2);
+        let resData;
 
-        const resData = data.data.filter(key => key.longitude && key.latitude && key.country_region === country && key.date === date);
+        if(country === "all"){
+            resData = data.data.filter(key => key.longitude && key.latitude && key.date === date);
+        }
+        else{
+            resData = data.data.filter(key => key.longitude && key.latitude && key.country_region === country && key.date === date);
+        }
         
         return {
             "currentCoordinates": countryCoordinates[country],

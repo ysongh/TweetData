@@ -31,7 +31,7 @@ class MapUS extends Component{
     }
 
     async componentDidMount(){
-        const data = await getMapData("all");
+        const data = await getMapData("all", this.state.date);
         
         this.setState({
             lat: data.currentCoordinates.lat,
@@ -77,17 +77,18 @@ class MapUS extends Component{
                 <h1 className="center-align">Map</h1>
                 <div className="row">
                     <div className="col s6">
-                        <label>Country</label>
+                        <label>Select Country</label>
                         <select className="browser-default" defaultValue={this.state.country} onChange={(e) => this.onChangeCountry(e.target.value)}>
-                            <option value="all">Choose Country</option>
+                            <option value="all">All Country</option>
                             <option value="US">United States</option>
                             <option value="Mainland China">China</option>
+                            <option value="Australia">Australia</option>
                         </select>
                     </div>
                     <div className="col s6">
-                        <label>Date</label>
+                        <label>Select Date</label>
                         <select className="browser-default" defaultValue={this.state.date} onChange={(e) => this.onChangeDate(e.target.value)}>
-                            <option value="2020-03-09">Choose Date</option>
+                            <option value="2020-03-09">2020-03-09</option>
                             <option value="2020-03-10">2020-03-10</option>
                             <option value="2020-03-11">2020-03-20</option>
                         </select>
