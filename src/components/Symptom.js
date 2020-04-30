@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { symptomData } from '../api';
+import { getTypeData } from '../api';
 
 import Donut from './charts/Donut';
+
+const url = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_symptoms.json";
 
 class Symptom extends Component{
   state = {
@@ -14,13 +16,13 @@ class Symptom extends Component{
 
   }
   async componentDidMount(){
-    const {top5, list, labels, values, dates} = await symptomData(this.state.date);
+    const {top5, list, labels, values, dates} = await getTypeData(url, this.state.date);
 
     this.setState({ data: list, top5: top5, labels: labels, values: values, dates: dates });
   }
 
   onChangeDate = async (date) => {
-    const {top5, list, labels, values} = await symptomData(date);
+    const {top5, list, labels, values} = await getTypeData(url, date);
 
     this.setState({ data: list, top5: top5, labels: labels, values: values });
   }

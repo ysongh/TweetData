@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const url1 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/b8ad9f5a1c4091ca7e79a0c5f09e550b17194202/data/sample_data_for_mockup.json";
 const url2 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/1f5720396ad531e305fe3793b4c243a414533788/data/sample_jhu_data_for_mockup.json";
-const url3 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_symptoms.json";
 
 const countryCoordinates = {
     "all": {
@@ -104,9 +103,9 @@ export const getMapData = async(country, date) => {
     }
 }
 
-export const symptomData = async (date) => {
+export const getTypeData = async (url, date) => {
     try{
-        const {data} = await axios.get(url3);
+        const {data} = await axios.get(url);
 
         const dates = data.data.map(i => i.date);
         const newData = data.data.filter(key => key.date === date);
@@ -120,18 +119,6 @@ export const symptomData = async (date) => {
         let { labels, values } = donutData(top5, total);
 
         return {top5, list, labels, values, dates};
-
-    }
-    catch(error){
-        console.log(error);
-    }
-}
-
-export const tweetData = async () => {
-    try{
-        const {data} = await axios.get(url3);
-
-        console.log(data);
 
     }
     catch(error){
