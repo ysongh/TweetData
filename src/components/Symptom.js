@@ -3,12 +3,13 @@ import { symptomData } from '../api';
 
 class Symptom extends Component{
   state = {
-      data: []
+      data: [],
+      top5: []
   }
   async componentDidMount(){
-    const data = await symptomData();
+    const {top5, list} = await symptomData();
 
-    this.setState({ data: data});
+    this.setState({ data: list, top5: top5});
   }
 
   render(){
@@ -19,21 +20,13 @@ class Symptom extends Component{
             <div className="card col s12 m6">
                 <ul className="collection with-header">
                     <li className="collection-header"><h4>Top 5 Symptom</h4></li>
-                    <li className="collection-item">
-                        <span>cold</span><span className="right">123</span>
-                    </li>
-                    <li className="collection-item">
-                        <span>cold</span><span className="right">123</span>
-                    </li>
-                    <li className="collection-item">
-                        <span>cold</span><span className="right">123</span>
-                    </li>
-                    <li className="collection-item">
-                        <span>cold</span><span className="right">123</span>
-                    </li>
-                    <li className="collection-item">
-                        <span>cold</span><span className="right">123</span>
-                    </li>
+                    {this.state.top5 ? this.state.top5.map((i) => {
+                        return (
+                            <li className="collection-item">
+                                <span>{i.name.toUpperCase()}</span><span className="right">{i.value}</span>
+                            </li>
+                        )
+                    }) : null}
                 </ul>
             </div>
             <div className="card col s12">

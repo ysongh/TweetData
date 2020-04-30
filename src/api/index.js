@@ -130,7 +130,9 @@ export const symptomData = async () => {
 
         list.sort((a, b) => b.value - a.value);
 
-        return list;
+        const top5 = list.slice(0, 5);
+
+        return {top5, list};
 
     }
     catch(error){
