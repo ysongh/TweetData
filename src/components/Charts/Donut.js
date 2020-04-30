@@ -1,11 +1,12 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-const Donut = ({ arr }) => {
+const Donut = ({ labels, values }) => {
     let optionsList = {
         chart: {
-            id: "area",
+          id: "area",
         },
+        labels: labels,
         legend: {
             position: 'top'
         }
@@ -14,9 +15,9 @@ const Donut = ({ arr }) => {
     return(
       <Chart
         options={optionsList}
-        series={arr}
+        series={values}
         type="donut"
-        height="285"
+        height="270"
       />
     );
 };

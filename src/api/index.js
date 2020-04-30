@@ -1,5 +1,4 @@
 import axios from 'axios';
-import allData from './sample_data_for_mockup';
 
 const url1 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/b8ad9f5a1c4091ca7e79a0c5f09e550b17194202/data/sample_data_for_mockup.json";
 const url2 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/1f5720396ad531e305fe3793b4c243a414533788/data/sample_jhu_data_for_mockup.json";
@@ -109,6 +108,8 @@ export const symptomData = async () => {
     try{
         const {data} = await axios.get(url3);
 
+        console.log(data);
+
         const newData = data.data.filter(key => key.date === "2020-03-12");
 
         let total = 0;
@@ -135,9 +136,9 @@ export const symptomData = async () => {
 
         const top5 = list.slice(0, 5);
 
-        let arr = donutData(top5, total);
+        let { labels, values } = donutData(top5, total);
 
-        return {top5, list, arr};
+        return {top5, list, labels, values};
 
     }
     catch(error){
@@ -159,16 +160,18 @@ export const tweetData = async () => {
 
 const donutData = (top5, total) => {
     let count = 0;
-    let arr = [];
+    let labels = []
+    let values = [];
 
     for(let i of top5){
         count += i.value;
-        arr.push(i.value);
+        labels.push(i.name.toUpperCase());
+        values.push(i.value);
     }
+    labels.push("OTHER");
+    values.push(total - count);
 
-    arr.unshift(total - count);
-
-    return arr;
+    return { labels, values };
 }
 
 /*

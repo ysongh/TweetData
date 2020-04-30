@@ -7,12 +7,14 @@ class Symptom extends Component{
   state = {
       data: [],
       top5: [],
-      arr: []
+      labels: [],
+      values: []
+
   }
   async componentDidMount(){
-    const {top5, list, arr} = await symptomData();
+    const {top5, list, labels, values} = await symptomData();
 
-    this.setState({ data: list, top5: top5, arr: arr });
+    this.setState({ data: list, top5: top5, labels: labels, values: values });
   }
 
   render(){
@@ -34,7 +36,7 @@ class Symptom extends Component{
             </div>
             <div className="card col s12 m6">
                 <div className="card-content">
-                    <Donut arr={this.state.arr}/>
+                    <Donut labels={this.state.labels} values={this.state.values} />
                 </div>
             </div>
             <div className="card col s12">
