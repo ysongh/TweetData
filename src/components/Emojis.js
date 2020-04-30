@@ -30,7 +30,7 @@ class Emojis extends Component{
   render(){
     return (
       <div className="container">
-        <h1 className="center-align">Emojis</h1>
+        <h1 className="center-align">Emoji</h1>
         <div className="row">
             <div className="col s12 m6 ">
                 <label>Select Date</label>

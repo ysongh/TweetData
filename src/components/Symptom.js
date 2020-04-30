@@ -44,7 +44,7 @@ class Symptom extends Component{
         <div className="row">
             <div className="card col s12 m6">
                 <ul className="collection with-header">
-                    <li className="collection-header"><h4>Top 5 Symptom</h4></li>
+                    <li className="collection-header"><h4>Top 5 Symptoms</h4></li>
                     {this.state.top5 ? this.state.top5.map((i) => {
                         return (
                             <li className="collection-item" key={i.name}>

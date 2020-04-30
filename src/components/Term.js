@@ -5,7 +5,7 @@ import Donut from './charts/Donut';
 
 const url = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_terms.json";
 
-class Tweet extends Component{
+class Term extends Component{
   state = {
       data: [],
       top5: [],
@@ -30,7 +30,7 @@ class Tweet extends Component{
   render(){
     return (
       <div className="container">
-        <h1 className="center-align">Tweet</h1>
+        <h1 className="center-align">Term</h1>
         <div className="row">
             <div className="col s12 m6 ">
                 <label>Select Date</label>
@@ -44,7 +44,7 @@ class Tweet extends Component{
         <div className="row">
             <div className="card col s12 m6">
                 <ul className="collection with-header">
-                    <li className="collection-header"><h4>Top 5 Tweet</h4></li>
+                    <li className="collection-header"><h4>Top 5 Terms</h4></li>
                     {this.state.top5 ? this.state.top5.map((i) => {
                         return (
                             <li className="collection-item" key={i.name}>
@@ -77,4 +77,4 @@ class Tweet extends Component{
   }
 }
 
-export default Tweet;
+export default Term;

@@ -8,9 +8,9 @@ import Navbar from './components/layout/Navbar';
 import Charts from './components/charts/Charts';
 import MapUS from './components/MapUS';
 import Symptom from './components/Symptom';
-import Tweet from './components/Tweet';
+import Term from './components/Term';
 import HashTag from './components/HashTag';
-import Emojis from './components/Emojis';
+import Emoji from './components/Emojis';
 
 class App extends Component{
   render(){
@@ -20,9 +20,9 @@ class App extends Component{
         <Route exact path="/" component={Charts} />
         <Route exact path="/map" component={MapUS} />
         <Route exact path="/symptom" component={Symptom} />
-        <Route exact path="/tweet" component={Tweet} />
+        <Route exact path="/term" component={Term} />
         <Route exact path="/hashtag" component={HashTag} />
-        <Route exact path="/emojis" component={Emojis} />
+        <Route exact path="/emoji" component={Emoji} />
       </Router>
     );
   }

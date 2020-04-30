@@ -20,13 +20,13 @@ const Navbar = () => {
                                 <Link to="/symptom">Symptom</Link>
                             </li>
                             <li>
-                                <Link to="/tweet">Tweet</Link>
+                                <Link to="/term">Term</Link>
                             </li>
                             <li>
                                 <Link to="/hashtag">Hash Tag</Link>
                             </li>
                             <li>
-                                <Link to="/emojis">Emojis</Link>
+                                <Link to="/emoji">Emoji</Link>
                             </li>
                             <li>
                                 <Link to="/map">Map</Link>
@@ -44,13 +44,13 @@ const Navbar = () => {
                     <Link to="/symptom">Symptom</Link>
                 </li>
                 <li className="sidenav-close">
-                    <Link to="/tweet">Tweet</Link>
+                    <Link to="/term">Term</Link>
                 </li>
                 <li className="sidenav-close">
                     <Link to="/hashtag">Hash Tag</Link>
                 </li>
                 <li className="sidenav-close">
-                    <Link to="/emojis">Emojis</Link>
+                    <Link to="/emoji">Emoji</Link>
                 </li>
                 <li className="sidenav-close">
                     <Link to="/map">Map</Link>
