@@ -19,6 +19,12 @@ class Symptom extends Component{
     this.setState({ data: list, top5: top5, labels: labels, values: values, dates: dates });
   }
 
+  onChangeDate = async (date) => {
+    const {top5, list, labels, values} = await symptomData(date);
+
+    this.setState({ data: list, top5: top5, labels: labels, values: values });
+  }
+
   render(){
     return (
       <div className="container">
@@ -26,8 +32,7 @@ class Symptom extends Component{
         <div className="row">
             <div className="col s12 m6 ">
                 <label>Select Date</label>
-                <select className="browser-default" defaultValue={this.state.date}>
-                    <option value="2020-03-12">2020-03-12</option>
+                <select className="browser-default" defaultValue={this.state.date} onChange={(e) => this.onChangeDate(e.target.value)}>
                     {this.state.dates.map(i => {
                         return <option key={i} value={i}>{i}</option>
                     })}
