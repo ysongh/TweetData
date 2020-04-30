@@ -4,7 +4,27 @@ import Chart from "react-apexcharts";
 const Donut = ({ labels, values }) => {
     let optionsList = {
         chart: {
-          id: "area",
+          id: "donut",
+        },
+        plotOptions: {
+          pie: {
+            donut: {
+              size: '55%',
+              labels: {
+                show: true,
+                total: {
+                  show: true,
+                  showAlways: true,
+                  label: 'Total',
+                  fontSize: '21px',
+                  fontFamily: 'Helvetica, Arial, sans-serif',
+                  fontWeight: 600,
+                  color: '#373d3f',
+                }
+              },
+              
+            }
+          }
         },
         labels: labels,
         legend: {
@@ -14,6 +34,7 @@ const Donut = ({ labels, values }) => {
     
     return(
       <Chart
+        className="mt-1"
         options={optionsList}
         series={values}
         type="donut"
