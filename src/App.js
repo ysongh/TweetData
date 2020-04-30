@@ -10,6 +10,7 @@ import MapUS from './components/MapUS';
 import Symptom from './components/Symptom';
 import Tweet from './components/Tweet';
 import HashTag from './components/HashTag';
+import Emojis from './components/Emojis';
 
 class App extends Component{
   render(){
@@ -20,7 +21,8 @@ class App extends Component{
         <Route exact path="/map" component={MapUS} />
         <Route exact path="/symptom" component={Symptom} />
         <Route exact path="/tweet" component={Tweet} />
-        <Route exact path="/hashTag" component={HashTag} />
+        <Route exact path="/hashtag" component={HashTag} />
+        <Route exact path="/emojis" component={Emojis} />
       </Router>
     );
   }

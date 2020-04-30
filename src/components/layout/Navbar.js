@@ -23,7 +23,10 @@ const Navbar = () => {
                                 <Link to="/tweet">Tweet</Link>
                             </li>
                             <li>
-                                <Link to="/hashTag">HashTag</Link>
+                                <Link to="/hashtag">Hash Tag</Link>
+                            </li>
+                            <li>
+                                <Link to="/emojis">Emojis</Link>
                             </li>
                             <li>
                                 <Link to="/map">Map</Link>
@@ -44,7 +47,10 @@ const Navbar = () => {
                     <Link to="/tweet">Tweet</Link>
                 </li>
                 <li className="sidenav-close">
-                    <Link to="/hashTag">HashTag</Link>
+                    <Link to="/hashtag">Hash Tag</Link>
+                </li>
+                <li className="sidenav-close">
+                    <Link to="/emojis">Emojis</Link>
                 </li>
                 <li className="sidenav-close">
                     <Link to="/map">Map</Link>

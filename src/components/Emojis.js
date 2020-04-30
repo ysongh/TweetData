@@ -3,9 +3,9 @@ import { getTypeData } from '../api';
 
 import Donut from './charts/Donut';
 
-const url = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_hashtags.json";
+const url = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_emojis.json";
 
-class HashTag extends Component{
+class Emojis extends Component{
   state = {
       data: [],
       top5: [],
@@ -30,7 +30,7 @@ class HashTag extends Component{
   render(){
     return (
       <div className="container">
-        <h1 className="center-align">Hash Tag</h1>
+        <h1 className="center-align">Emojis</h1>
         <div className="row">
             <div className="col s12 m6 ">
                 <label>Select Date</label>
@@ -44,7 +44,7 @@ class HashTag extends Component{
         <div className="row">
             <div className="card col s12 m6">
                 <ul className="collection with-header">
-                    <li className="collection-header"><h4>Top 5 Hash Tag</h4></li>
+                    <li className="collection-header"><h4>Top 5 Emojis</h4></li>
                     {this.state.top5 ? this.state.top5.map((i) => {
                         return (
                             <li className="collection-item" key={i.name}>
@@ -77,4 +77,4 @@ class HashTag extends Component{
   }
 }
 
-export default HashTag;
+export default Emojis;
