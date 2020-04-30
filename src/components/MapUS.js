@@ -106,7 +106,7 @@ class MapUS extends Component{
                                 return (
                                     <Marker key={key} position={cityPosition} icon={i.confirmed > 1000 ? redIcon : blueIcon}>
                                         <Popup>
-                                            <strong>Province State</strong>: {i.province_state}<br /> 
+                                            <strong>{i.province_state ? "Province State" : "Country Region"}</strong>: {i.province_state ? i.province_state : i.country_region} <br /> 
                                             <strong>Confirmed</strong>: {i.confirmed} <br /> 
                                             <strong>Death</strong>: {i.death_cnt} <br /> 
                                             <strong>Recovered</strong>: {i.recovered} <br /> 
