@@ -42,6 +42,58 @@ const Area = ({ dates, data, type, cases, top5List }) => {
         legend: {
             position: 'top'
         },
+        annotations: {
+            xaxis: [
+              {
+                x: "2020-02-02",
+                borderColor: '#00E396',
+                label: {
+                  orientation: 'vertical',
+                  text: 'First death outside China in the Philippines'
+                }
+              },
+              {
+                x: "2020-02-07",
+                borderColor: '#00E396',
+                label: {
+                  orientation: 'vertical',
+                  text: 'The world mourns the death of Dr Li Wenliang'
+                }
+              },
+              {
+                x: "2020-02-29",
+                borderColor: '#00E396',
+                label: {
+                  orientation: 'vertical',
+                  text: 'First death in the US (Washington state)'
+                }
+              },
+              {
+                x: "2020-03-03",
+                borderColor: '#00E396',
+                label: {
+                  orientation: 'vertical',
+                  text: 'Federal Reserve drops interest rate by 0.5%'
+                }
+              },
+              {
+                x: "2020-03-11",
+                borderColor: '#00E396',
+                label: {
+                  orientation: 'vertical',
+                  text: 'WHO declares COVID-19 a pandemic'
+                }
+              },
+              {
+                x: "2020-03-13",
+                borderColor: '#00E396',
+                label: {
+                  orientation: 'vertical',
+                  text: 'US announces relief package'
+                }
+              }
+            ]
+        },
         tooltip: {
             custom: function({ dataPointIndex}) {
               return `
