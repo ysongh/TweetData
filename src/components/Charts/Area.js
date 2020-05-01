@@ -2,6 +2,7 @@ import React from 'react';
 import Chart from "react-apexcharts";
 
 const Area = ({ dates, data, type }) => {
+    console.log(data)
     let optionsList = {
         chart: {
             id: "area",
@@ -19,12 +20,10 @@ const Area = ({ dates, data, type }) => {
         },
         yaxis: {
             title: {
-                text: "Percent Change From Baseline"
+                text: "Sentiment Score"
             },
-            min: -70,
-            max: 50,
             labels: {
-                formatter: val => { return val + "%" }
+                formatter: val => { return val.toFixed(4) + "%" }
             }
         },
         legend: {
@@ -44,11 +43,18 @@ const Area = ({ dates, data, type }) => {
             },
         }
     }
+
+    const seriesList = [
+        {
+          name: "Volume",
+          data: data
+        }
+    ];
     
     return(
       <Chart
         options={optionsList}
-        series={data}
+        series={seriesList}
         type={type}
         height="500"
       />

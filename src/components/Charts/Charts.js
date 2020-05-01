@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getSampleData } from '../../api';
+import { getScores } from '../../api';
 
 import Area from './Area';
 
@@ -12,14 +12,15 @@ class Charts extends Component{
     }
   }
   async componentDidMount(){
-    const data = await getSampleData();
+    const {dates, sentimentScores} = await getScores();
+    console.log(dates)
 
-    this.setState({ resData: data });
+    this.setState({ dates: dates, source: sentimentScores });
   }
 
   render(){
     return (
-      <Area dates={this.state.resData.dates} data={this.state.resData.source} type="area" />
+      <Area dates={this.state.dates} data={this.state.source} type="line" />
     );
   }
 }

@@ -4,6 +4,7 @@ import { objectToArray, donutData } from './helper';
 
 const url1 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/b8ad9f5a1c4091ca7e79a0c5f09e550b17194202/data/sample_data_for_mockup.json";
 const url2 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/1f5720396ad531e305fe3793b4c243a414533788/data/sample_jhu_data_for_mockup.json";
+const url3 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_data.json";
 
 const countryCoordinates = {
     "all": {
@@ -40,7 +41,7 @@ export const getSampleData = async() => {
         const data6 = data.data.map(key => key.workplaces_percent_change_from_baseline);
         const data7 = data.data.map(key => key.volume);
 
-        const dates = data.data.map(key => key.date)
+        const dates = data.data.map(key => key.date);
 
         return {
             dates: dates,
@@ -145,6 +146,23 @@ export const getTypeData = async (url, date) => {
         let { labels, values } = donutData(top5, total);
 
         return {top5, list, labels, values, dates};
+
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+export const getScores = async () => {
+    try{
+        const {data} = await axios.get(url3);
+
+        const resData = data.data.filter(key => key.sentiment_score);
+        const dates = resData.map(key => key.index);
+
+        const sentimentScores = resData.map(key => key.sentiment_score);
+
+        return {dates, sentimentScores};
 
     }
     catch(error){
