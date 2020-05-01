@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CountUp from 'react-countup';
 import { getTypeData } from '../api';
 
 import Donut from './charts/Donut';
@@ -48,7 +49,14 @@ class Emojis extends Component{
                     {this.state.data ? this.state.data.map((i) => {
                         return (
                             <li className="collection-item" key={i.name}>
-                                <span>{i.name.toUpperCase()}</span><span className="right">{i.value}</span>
+                                <span>{i.name.toUpperCase()}</span>
+                                <span className="right">
+                                    <CountUp
+                                        start={0}
+                                        end={i.value}
+                                        duration={1}
+                                        separator="," />
+                                </span>
                             </li>
                         )
                     }) : null}
