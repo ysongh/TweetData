@@ -29,7 +29,8 @@ const Donut = ({ labels, values }) => {
         labels: labels,
         legend: {
             position: 'top'
-        }
+        },
+        colors: ['#2E93fA', '#66DA26', '#546E7A', '#E91E63', '#FF9800', '#b6bd33']
     }
     
     return(
