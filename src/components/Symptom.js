@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getTypeData } from '../api';
 
 import Donut from './charts/Donut';
-import wordImage from '../assets/wc_symptoms.png';
+//import wordImage from '../assets/wc_symptoms.png';
 
 const url = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_symptoms.json";
 
@@ -58,11 +58,6 @@ class Symptom extends Component{
             <div className="col s12 m6">
                 <div className="mt-2">
                     <Donut labels={this.state.labels} values={this.state.values} />
-                </div>
-            </div>
-            <div className="card col s12 m6">
-                <div className="card-image waves-effect waves-block waves-light">
-                    <img className="activator" src={wordImage} alt="Words List" />
                 </div>
             </div>
         </div>
