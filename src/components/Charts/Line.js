@@ -2,7 +2,6 @@ import React from 'react';
 import Chart from "react-apexcharts";
 
 const Line = ({ dates, data }) => {
-  console.log({ dates, data })
   const optionsList = {
     chart: {
         id: "line",
@@ -38,6 +37,30 @@ const Line = ({ dates, data }) => {
       },
       stroke: {
         curve: 'smooth'
+      },
+      annotations: {
+        xaxis: [
+          {
+            x: "2020-03-30",
+            borderColor: '#00E396',
+            label: {
+              orientation: 'horizontal',
+              text: 'Y-axis annotation on 8800'
+            }
+          }
+        ]
+      },
+      tooltip: {
+        custom: function({series, seriesIndex, dataPointIndex, w}) {
+          console.log(series)
+          return `
+            <div>
+              <h5>Top 5</h5>
+              <p>${dates[dataPointIndex]}<p>
+              <p>${dataPointIndex}<p>
+            </div>
+          `
+        }
       }
     }
 
