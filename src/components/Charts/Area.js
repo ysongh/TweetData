@@ -46,7 +46,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
             xaxis: [
               {
                 x: "2020-02-02",
-                borderColor: '#00E396',
+                borderColor: '#263c8c',
                 label: {
                   orientation: 'vertical',
                   text: 'First death outside China in the Philippines'
@@ -54,7 +54,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
               },
               {
                 x: "2020-02-07",
-                borderColor: '#00E396',
+                borderColor: '#263c8c',
                 label: {
                   orientation: 'vertical',
                   text: 'The world mourns the death of Dr Li Wenliang'
@@ -62,7 +62,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
               },
               {
                 x: "2020-02-29",
-                borderColor: '#00E396',
+                borderColor: '#263c8c',
                 label: {
                   orientation: 'vertical',
                   text: 'First death in the US (Washington state)'
@@ -70,7 +70,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
               },
               {
                 x: "2020-03-03",
-                borderColor: '#00E396',
+                borderColor: '#263c8c',
                 label: {
                   orientation: 'vertical',
                   text: 'Federal Reserve drops interest rate by 0.5%'
@@ -78,7 +78,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
               },
               {
                 x: "2020-03-11",
-                borderColor: '#00E396',
+                borderColor: '#263c8c',
                 label: {
                   orientation: 'vertical',
                   text: 'WHO declares COVID-19 a pandemic'
@@ -86,7 +86,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
               },
               {
                 x: "2020-03-13",
-                borderColor: '#00E396',
+                borderColor: '#263c8c',
                 label: {
                   orientation: 'vertical',
                   text: 'US announces relief package'
@@ -96,20 +96,28 @@ const Area = ({ dates, data, type, cases, top5List }) => {
             yaxis: [
               {
                 y: "0.05",
-                borderColor: '#371375',
+                borderColor: '#19b538',
                 label: {
                   orientation: 'vertical',
                   textAnchor: 'start',
-                  text: 'Positive'
+                  text: 'Positive',
+                  style: {
+                    color: "#fff",
+                    background: "#19b538"
+                  },
                 }
               },
               {
                 y: "-0.05",
-                borderColor: '#371375',
+                borderColor: '#c2391d',
                 label: {
                   orientation: 'vertical',
                   textAnchor: 'start',
-                  text: 'Negative'
+                  text: 'Negative',
+                  style: {
+                    color: "#fff",
+                    background: "#c2391d"
+                  }
                 }
               }
             ]
