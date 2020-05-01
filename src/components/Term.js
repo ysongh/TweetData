@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getTypeData } from '../api';
 
 import Donut from './charts/Donut';
+import wordImage from '../assets/wc_terms.png';
 
 const url = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_terms.json";
 
@@ -57,6 +58,11 @@ class Term extends Component{
             <div className="card col s12 m6">
                 <div className="card-content">
                     <Donut labels={this.state.labels} values={this.state.values} />
+                </div>
+            </div>
+            <div className="card col s12 m6">
+                <div className="card-image waves-effect waves-block waves-light">
+                    <img className="activator" src={wordImage} />
                 </div>
             </div>
             <div className="card col s12">
