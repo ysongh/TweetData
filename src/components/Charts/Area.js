@@ -59,12 +59,25 @@ const Area = ({ dates, data, type, cases, top5List }) => {
             custom: function({ dataPointIndex}) {
               return `
                 <div class="popup">
-                  <h5>Top 5</h5>
-                  <p>1) ${top5List[dataPointIndex][0].name}<p>
-                  <p>2) ${top5List[dataPointIndex][1].name}<p>
-                  <p>3) ${top5List[dataPointIndex][2].name}<p>
-                  <p>4) ${top5List[dataPointIndex][3].name}<p>
-                  <p>5) ${top5List[dataPointIndex][4].name}<p>
+                  <h5>Top 10</h5>
+
+                  <div class="popup-grid">
+                    <div class="mr-1">
+                        <p>1) ${top5List[dataPointIndex][0].name}<p>
+                        <p>2) ${top5List[dataPointIndex][1].name}<p>
+                        <p>3) ${top5List[dataPointIndex][2].name}<p>
+                        <p>4) ${top5List[dataPointIndex][3].name}<p>
+                        <p>5) ${top5List[dataPointIndex][4].name}<p>
+                    </div>
+                    <div>
+                        <p>6) ${top5List[dataPointIndex][5].name}<p>
+                        <p>7) ${top5List[dataPointIndex][6].name}<p>
+                        <p>8) ${top5List[dataPointIndex][7].name}<p>
+                        <p>9) ${top5List[dataPointIndex][8].name}<p>
+                        <p>10) ${top5List[dataPointIndex][9].name}<p>
+                    </div>
+                  </div>
+                  
                 </div>
               `
             }

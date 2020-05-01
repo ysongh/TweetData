@@ -117,7 +117,7 @@ export const getTypeAllData = async (url) => {
             const {total, list} = objectToArray(arr);
 
             list.sort((a, b) => b.value - a.value);
-            const top5 = list.slice(0, 5);
+            const top5 = list.slice(0, 10);
             top5List.push(top5);
 
             return total;
