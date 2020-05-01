@@ -36,9 +36,9 @@ class Home extends Component{
 
     return (
       <div className="container">
-        <h1 className="center-align">Home</h1>
-        <div className="row">
-            <div className="col s12 m6 ">
+        <div className="row mt-2">
+            <h1 className="title col s12 m6 l8">Dashboard</h1>
+            <div className="col s12 m6 l4">
                 <label>Select Catergory</label>
                 <select className="browser-default" defaultValue={this.state.urlNumber} onChange={(e) => this.onChangeDate(e.target.value)}>
                   <option value="0">Term</option>

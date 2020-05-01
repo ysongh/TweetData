@@ -31,9 +31,9 @@ class HashTag extends Component{
   render(){
     return (
       <div className="container">
-        <h1 className="center-align">Hash Tag</h1>
-        <div className="row">
-            <div className="col s12 m6 ">
+        <div className="row mt-2">
+            <h1 className="title col s12 m6 l8">Hash Tag</h1>
+            <div className="col s12 m6 l4">
                 <label>Select Date</label>
                 <select className="browser-default" defaultValue={this.state.date} onChange={(e) => this.onChangeDate(e.target.value)}>
                     {this.state.dates.map(i => {
