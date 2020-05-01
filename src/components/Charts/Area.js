@@ -99,6 +99,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
                 borderColor: '#371375',
                 label: {
                   orientation: 'vertical',
+                  textAnchor: 'start',
                   text: 'Positive'
                 }
               },
@@ -107,6 +108,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
                 borderColor: '#371375',
                 label: {
                   orientation: 'vertical',
+                  textAnchor: 'start',
                   text: 'Negative'
                 }
               }
