@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { getSampleData } from '../../api';
 
 import Area from './Area';
-import Line from './Line';
 
 class Charts extends Component{
   state = {
@@ -20,11 +19,7 @@ class Charts extends Component{
 
   render(){
     return (
-      <div className="container">
-        <h1 className="center-align">Charts</h1>
-        <Area dates={this.state.resData.dates} data={this.state.resData.source} type="area" />
-        <Line dates={this.state.resData.dates} data={this.state.resData.volume} />
-      </div>
+      <Area dates={this.state.resData.dates} data={this.state.resData.source} type="area" />
     );
   }
 }

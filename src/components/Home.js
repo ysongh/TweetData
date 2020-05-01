@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getTypeAllData } from '../api';
 
+import Chart from './charts/Charts';
 import Line from './charts/Line';
 
 const urls = [
@@ -36,8 +37,9 @@ class Home extends Component{
 
     return (
       <div className="container">
-        <div className="row mt-2">
-            <h1 className="title col s12 m6 l8">Dashboard</h1>
+        <h1 className="title mt-2">Dashboard</h1>
+        <Chart />
+        <div className="row mt-1">
             <div className="col s12 m6 l4">
                 <label>Select Catergory</label>
                 <select className="browser-default" defaultValue={this.state.urlNumber} onChange={(e) => this.onChangeDate(e.target.value)}>
