@@ -109,15 +109,20 @@ export const getTypeAllData = async (url) => {
     try{
         const {data} = await axios.get(url);
         const dates = data.data.map(i => i.date);
+        let top5List = [];
 
         const values = data.data.map(i => {
             const arr = [i];
-            const {total} = objectToArray(arr);
+            const {total, list} = objectToArray(arr);
+
+            list.sort((a, b) => b.value - a.value);
+            const top5 = list.slice(0, 5);
+            top5List.push(top5);
 
             return total;
         })
 
-        return {dates, values};
+        return {dates, values, top5List};
     }
     catch(error){
         console.log(error);

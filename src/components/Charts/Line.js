@@ -1,7 +1,7 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-const Line = ({ dates, data }) => {
+const Line = ({ dates, data, top5List }) => {
   const optionsList = {
     chart: {
         id: "line",
@@ -52,12 +52,14 @@ const Line = ({ dates, data }) => {
       },
       tooltip: {
         custom: function({series, seriesIndex, dataPointIndex, w}) {
-          console.log(series)
           return `
             <div>
               <h5>Top 5</h5>
-              <p>${dates[dataPointIndex]}<p>
-              <p>${dataPointIndex}<p>
+              <p>${top5List[dataPointIndex][0].name}<p>
+              <p>${top5List[dataPointIndex][1].name}<p>
+              <p>${top5List[dataPointIndex][2].name}<p>
+              <p>${top5List[dataPointIndex][3].name}<p>
+              <p>${top5List[dataPointIndex][4].name}<p>
             </div>
           `
         }
