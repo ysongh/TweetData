@@ -8,19 +8,18 @@ class Charts extends Component{
     resData: {
       dates: [],
       source: [],
-      volume: []
+      cases: []
     }
   }
   async componentDidMount(){
-    const {dates, sentimentScores} = await getScores();
-    console.log(dates)
+    const {dates, sentimentScores, cases} = await getScores();
 
-    this.setState({ dates: dates, source: sentimentScores });
+    this.setState({ dates: dates, source: sentimentScores, cases: cases });
   }
 
   render(){
     return (
-      <Area dates={this.state.dates} data={this.state.source} type="line" />
+      <Area dates={this.state.dates} data={this.state.source} cases={this.state.cases} type="line" />
     );
   }
 }

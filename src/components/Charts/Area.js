@@ -1,8 +1,7 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-const Area = ({ dates, data, type }) => {
-    console.log(data)
+const Area = ({ dates, data, type, cases }) => {
     let optionsList = {
         chart: {
             id: "area",
@@ -18,14 +17,27 @@ const Area = ({ dates, data, type }) => {
         xaxis: {
             categories: dates
         },
-        yaxis: {
-            title: {
-                text: "Sentiment Score"
+        yaxis: [
+            {
+                title: {
+                    text: "Sentiment Score"
+                },
+                labels: {
+                    formatter: val => { return val.toFixed(4) + "%" }
+                },
+                min: -0.2,
+                max: 0.1,
             },
-            labels: {
-                formatter: val => { return val.toFixed(4) + "%" }
+            {
+                opposite: true,
+                title: {
+                    text: "Number of Confirmed Cases"
+                },
+                labels: {
+                    formatter: val => { return val.toFixed(0) }
+                }
             }
-        },
+        ],
         legend: {
             position: 'top'
         },
@@ -46,8 +58,14 @@ const Area = ({ dates, data, type }) => {
 
     const seriesList = [
         {
-          name: "Volume",
-          data: data
+            type: "line",
+            name: "Sentiment Score",
+            data: data
+        },
+        {
+            type: "line",
+            name: "Case",
+            data: cases
         }
     ];
     

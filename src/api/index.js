@@ -158,11 +158,12 @@ export const getScores = async () => {
         const {data} = await axios.get(url3);
 
         const resData = data.data.filter(key => key.sentiment_score);
+        const cases = resData.map(key => key.cases);
         const dates = resData.map(key => key.index);
 
         const sentimentScores = resData.map(key => key.sentiment_score);
 
-        return {dates, sentimentScores};
+        return {dates, sentimentScores, cases};
 
     }
     catch(error){
