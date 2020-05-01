@@ -92,6 +92,24 @@ const Area = ({ dates, data, type, cases, top5List }) => {
                   text: 'US announces relief package'
                 }
               }
+            ],
+            yaxis: [
+              {
+                y: "0.05",
+                borderColor: '#371375',
+                label: {
+                  orientation: 'vertical',
+                  text: 'Positive'
+                }
+              },
+              {
+                y: "-0.05",
+                borderColor: '#371375',
+                label: {
+                  orientation: 'vertical',
+                  text: 'Negative'
+                }
+              }
             ]
         },
         tooltip: {
