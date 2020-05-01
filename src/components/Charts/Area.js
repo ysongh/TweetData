@@ -1,7 +1,8 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-const Area = ({ dates, data, type, cases }) => {
+const Area = ({ dates, data, type, cases, top5List }) => {
+    console.log(top5List)
     let optionsList = {
         chart: {
             id: "area",
@@ -53,7 +54,21 @@ const Area = ({ dates, data, type, cases }) => {
               fontWeight:  'bold',
               color:  '#263238'
             },
-        }
+        },
+        tooltip: {
+            custom: function({ dataPointIndex}) {
+              return `
+                <div class="popup">
+                  <h5>Top 5</h5>
+                  <p>1) ${top5List[dataPointIndex][0].name}<p>
+                  <p>2) ${top5List[dataPointIndex][1].name}<p>
+                  <p>3) ${top5List[dataPointIndex][2].name}<p>
+                  <p>4) ${top5List[dataPointIndex][3].name}<p>
+                  <p>5) ${top5List[dataPointIndex][4].name}<p>
+                </div>
+              `
+            }
+          }
     }
 
     const seriesList = [

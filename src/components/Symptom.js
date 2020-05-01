@@ -62,7 +62,7 @@ class Symptom extends Component{
             </div>
             <div className="card col s12 m6">
                 <div className="card-image waves-effect waves-block waves-light">
-                    <img className="activator" src={wordImage} />
+                    <img className="activator" src={wordImage} alt="Words List" />
                 </div>
             </div>
             <div className="card col s12">

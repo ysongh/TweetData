@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { getTypeAllData } from '../api';
 
 import Chart from './charts/Charts';
-import Line from './charts/Line';
 
 const urls = [
   "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_terms.json",
@@ -37,9 +36,8 @@ class Home extends Component{
 
     return (
       <div className="container">
-        <h1 className="title mt-2">Dashboard</h1>
-        <Chart />
-        <div className="row mt-1">
+         <div className="row mt-2">
+            <h1 className="title col s12 m6 l8">Dash Board</h1>
             <div className="col s12 m6 l4">
                 <label>Select Catergory</label>
                 <select className="browser-default" defaultValue={this.state.urlNumber} onChange={(e) => this.onChangeDate(e.target.value)}>
@@ -50,7 +48,7 @@ class Home extends Component{
                 </select>
             </div>
         </div>
-        <Line dates={this.state.labels} data={this.state.values} top5List={this.state.top5List}/>
+        <Chart top5List={this.state.top5List}/>
       </div>
     );
   }

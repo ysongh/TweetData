@@ -13,13 +13,14 @@ class Charts extends Component{
   }
   async componentDidMount(){
     const {dates, sentimentScores, cases} = await getScores();
+    console.log(cases)
 
     this.setState({ dates: dates, source: sentimentScores, cases: cases });
   }
 
   render(){
     return (
-      <Area dates={this.state.dates} data={this.state.source} cases={this.state.cases} type="line" />
+      <Area dates={this.state.dates} data={this.state.source} cases={this.state.cases} top5List={this.props.top5List} type="line" />
     );
   }
 }
