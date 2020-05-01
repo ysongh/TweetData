@@ -74,7 +74,7 @@ class MapUS extends Component{
 
         return (
             <div className="container">
-                <h1 className="center-align">Map</h1>
+                <h1 className="title mt-2">Map</h1>
                 <div className="row">
                     <div className="col s6">
                         <label>Select Country</label>

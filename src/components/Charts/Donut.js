@@ -38,7 +38,7 @@ const Donut = ({ labels, values }) => {
         options={optionsList}
         series={values}
         type="donut"
-        height="270"
+        height="330"
       />
     );
 };

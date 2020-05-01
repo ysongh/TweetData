@@ -54,8 +54,8 @@ class Emojis extends Component{
                     }) : null}
                 </ul>
             </div>
-            <div className="card col s12 m6">
-                <div className="card-content">
+            <div className="col s12 m6">
+                <div className="mt-2">
                     <Donut labels={this.state.labels} values={this.state.values} />
                 </div>
             </div>
