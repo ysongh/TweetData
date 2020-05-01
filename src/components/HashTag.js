@@ -45,8 +45,8 @@ class HashTag extends Component{
         <div className="row">
             <div className="card col s12 m6">
                 <ul className="collection with-header">
-                    <li className="collection-header"><h4>Top 5 Hash Tags</h4></li>
-                    {this.state.top5 ? this.state.top5.map((i) => {
+                    <li className="collection-header"><h4>Top 20 Hash Tags</h4></li>
+                    {this.state.data ? this.state.data.map((i) => {
                         return (
                             <li className="collection-item" key={i.name}>
                                 <span>{i.name.toUpperCase()}</span><span className="right">{i.value}</span>
@@ -63,17 +63,6 @@ class HashTag extends Component{
             <div className="card col s12 m6">
                 <div className="card-image waves-effect waves-block waves-light">
                     <img className="activator" src={wordImage} alt="Words List" />
-                </div>
-            </div>
-            <div className="card col s12">
-                <div className="card-content">
-                    {this.state.data ? this.state.data.map((i) => {
-                        return (
-                            <div className="chip" key={i.name}>
-                                {i.name} {i.value}
-                            </div>
-                        )
-                    }) : null}
                 </div>
             </div>
         </div>

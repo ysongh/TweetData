@@ -141,6 +141,8 @@ export const getTypeData = async (url, date) => {
 
         list.sort((a, b) => b.value - a.value);
 
+        list = list.slice(0, 20);
+
         const top5 = list.slice(0, 5);
 
         let { labels, values } = donutData(top5, total);
