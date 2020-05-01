@@ -102,18 +102,18 @@ const Area = ({ dates, data, type, cases, top5List }) => {
 
                   <div class="popup-grid">
                     <div class="mr-1">
-                        <p>1) ${top5List[dataPointIndex][0].name}<p>
-                        <p>2) ${top5List[dataPointIndex][1].name}<p>
-                        <p>3) ${top5List[dataPointIndex][2].name}<p>
-                        <p>4) ${top5List[dataPointIndex][3].name}<p>
-                        <p>5) ${top5List[dataPointIndex][4].name}<p>
+                        <p>1) ${top5List[dataPointIndex][0] ? top5List[dataPointIndex][0].name : "N/A"}<p>
+                        <p>2) ${top5List[dataPointIndex][1] ? top5List[dataPointIndex][1].name : "N/A"}<p>
+                        <p>3) ${top5List[dataPointIndex][2] ? top5List[dataPointIndex][2].name : "N/A"}<p>
+                        <p>4) ${top5List[dataPointIndex][3] ? top5List[dataPointIndex][3].name : "N/A"}<p>
+                        <p>5) ${top5List[dataPointIndex][4] ? top5List[dataPointIndex][4].name : "N/A"}<p>
                     </div>
                     <div>
-                        <p>6) ${top5List[dataPointIndex][5].name}<p>
-                        <p>7) ${top5List[dataPointIndex][6].name}<p>
-                        <p>8) ${top5List[dataPointIndex][7].name}<p>
-                        <p>9) ${top5List[dataPointIndex][8].name}<p>
-                        <p>10) ${top5List[dataPointIndex][9].name}<p>
+                        <p>6) ${top5List[dataPointIndex][5] ? top5List[dataPointIndex][5].name : "N/A"}<p>
+                        <p>7) ${top5List[dataPointIndex][6] ? top5List[dataPointIndex][6].name : "N/A"}<p>
+                        <p>8) ${top5List[dataPointIndex][7] ? top5List[dataPointIndex][7].name : "N/A"}<p>
+                        <p>9) ${top5List[dataPointIndex][8] ? top5List[dataPointIndex][8].name : "N/A"}<p>
+                        <p>10) ${top5List[dataPointIndex][9] ? top5List[dataPointIndex][9].name : "N/A"}<p>
                     </div>
                   </div>
                   
