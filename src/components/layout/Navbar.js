@@ -8,7 +8,7 @@ const Navbar = () => {
                 <nav className="cyan darken-1">
                     <div className="container">
                     <div className="nav-wrapper">
-                        <Link to="/" className="brand-logo">Tweet Data</Link>
+                        <Link to="/" className="brand-logo">Twitter Pandemic Index</Link>
                         <a href="/" data-target="mobile-nav" className="sidenav-trigger">
                             <i className="material-icons">menu</i>
                         </a>

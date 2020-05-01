@@ -21,10 +21,10 @@ const Area = ({ dates, data, type, cases, top5List }) => {
         yaxis: [
             {
                 title: {
-                    text: "Sentiment Score"
+                    text: "Twitter Pandemic Index"
                 },
                 labels: {
-                    formatter: val => { return val.toFixed(4) + "%" }
+                    formatter: val => { return val.toFixed(4) }
                 },
                 min: -0.2,
                 max: 0.1,
@@ -32,7 +32,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
             {
                 opposite: true,
                 title: {
-                    text: "Number of Confirmed Cases"
+                    text: "Number of confirmed cases"
                 },
                 labels: {
                     formatter: val => { return val.toFixed(0) }
@@ -41,19 +41,6 @@ const Area = ({ dates, data, type, cases, top5List }) => {
         ],
         legend: {
             position: 'top'
-        },
-        title: {
-            text: "USA",
-            align: 'left',
-            margin: 10,
-            offsetX: 0,
-            offsetY: 0,
-            floating: false,
-            style: {
-              fontSize:  '20px',
-              fontWeight:  'bold',
-              color:  '#263238'
-            },
         },
         tooltip: {
             custom: function({ dataPointIndex}) {
@@ -92,7 +79,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
         },
         {
             type: "line",
-            name: "Case",
+            name: "Number of confirmed cases",
             data: cases
         }
     ];

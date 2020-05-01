@@ -37,9 +37,8 @@ class Home extends Component{
     return (
       <div className="container">
          <div className="row mt-2">
-            <h1 className="title col s12 m6 l8">Dash Board</h1>
             <div className="col s12 m6 l4">
-                <label>Select Catergory</label>
+                <label>See most frequent entities mentioned that day</label>
                 <select className="browser-default" defaultValue={this.state.urlNumber} onChange={(e) => this.onChangeDate(e.target.value)}>
                   <option value="0">Term</option>
                   <option value="1">Symptom</option>
