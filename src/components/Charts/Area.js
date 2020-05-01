@@ -96,6 +96,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
             yaxis: [
               {
                 y: "0.05",
+                strokeDashArray: 0,
                 borderColor: '#19b538',
                 label: {
                   orientation: 'vertical',
@@ -109,6 +110,7 @@ const Area = ({ dates, data, type, cases, top5List }) => {
               },
               {
                 y: "-0.05",
+                strokeDashArray: 0,
                 borderColor: '#c2391d',
                 label: {
                   orientation: 'vertical',
