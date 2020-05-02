@@ -1,10 +1,23 @@
 import axios from 'axios';
 
 import { objectToArray, donutData } from './helper';
+import globalDailyData from './global_daily_data.json';
 
-const url1 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/b8ad9f5a1c4091ca7e79a0c5f09e550b17194202/data/sample_data_for_mockup.json";
-const url2 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/1f5720396ad531e305fe3793b4c243a414533788/data/sample_jhu_data_for_mockup.json";
-const url3 = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_data.json";
+import globalDailyEmojis from './global_daily_emojis.json';
+import globalDailyHashtags from  './global_daily_hashtags.json';
+import globalDailySymptoms from  './global_daily_symptoms.json';
+import globalDailyTerms from  './global_daily_terms.json';
+
+const url1 = "";
+//const url2 = "";
+//const url3 = "";
+
+const files = [
+    globalDailySymptoms,
+    globalDailyTerms,
+    globalDailyHashtags,
+    globalDailyEmojis
+]
 
 const countryCoordinates = {
     "all": {
@@ -86,19 +99,19 @@ export const getSampleData = async() => {
 
 export const getMapData = async(country, date) => {
     try{
-        const {data} = await axios.get(url2);
-        let resData;
+        // const {data} = await axios.get(url2);
+        // let resData;
 
-        if(country === "all"){
-            resData = data.data.filter(key => key.longitude && key.latitude && key.date === date);
-        }
-        else{
-            resData = data.data.filter(key => key.longitude && key.latitude && key.country_region === country && key.date === date);
-        }
+        // if(country === "all"){
+        //     resData = data.data.filter(key => key.longitude && key.latitude && key.date === date);
+        // }
+        // else{
+        //     resData = data.data.filter(key => key.longitude && key.latitude && key.country_region === country && key.date === date);
+        // }
         
         return {
-            "currentCoordinates": countryCoordinates[country],
-            "data": resData
+            "currentCoordinates": countryCoordinates["all"],
+            "data": []
         }
     }
     catch(error){
@@ -106,13 +119,14 @@ export const getMapData = async(country, date) => {
     }
 }
 
-export const getTypeAllData = async (url) => {
+export const getTypeAllData = async (i) => {
     try{
-        const {data} = await axios.get(url);
-        const dates = data.data.map(i => i.date);
+        //const {data} = await axios.get(url);
+
+        const dates = files[i].data.map(i => i.date);
         let top5List = [];
 
-        const values = data.data.map(i => {
+        const values = files[i].data.map(i => {
             const arr = [i];
             const {total, list} = objectToArray(arr);
 
@@ -130,12 +144,10 @@ export const getTypeAllData = async (url) => {
     }
 }
 
-export const getTypeData = async (url, date) => {
+export const getTypeData = async (num, date) => {
     try{
-        const {data} = await axios.get(url);
-
-        const dates = data.data.map(i => i.date);
-        const newData = data.data.filter(key => key.date === date);
+        const dates = files[num].data.map(i => i.date);
+        const newData = files[num].data.filter(key => key.date === date);
 
         let {total, list} = objectToArray(newData);
 
@@ -157,9 +169,7 @@ export const getTypeData = async (url, date) => {
 
 export const getScores = async () => {
     try{
-        const {data} = await axios.get(url3);
-
-        const resData = data.data.filter(key => key.sentiment_score);
+        const resData = globalDailyData.data.filter(key => key.sentiment_score);
         const cases = resData.map(key => key.cases);
         const dates = resData.map(key => key.index);
 

@@ -5,8 +5,6 @@ import { getTypeData } from '../api';
 import Donut from './charts/Donut';
 //import wordImage from '../assets/wc_terms.png';
 
-const url = "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_terms.json";
-
 class Term extends Component{
   state = {
       data: [],
@@ -18,13 +16,13 @@ class Term extends Component{
   }
   
   async componentDidMount(){
-    const {top5, list, labels, values, dates} = await getTypeData(url, this.state.date);
+    const {top5, list, labels, values, dates} = await getTypeData(1, this.state.date);
 
     this.setState({ data: list, top5: top5, labels: labels, values: values, dates: dates });
   }
 
   onChangeDate = async (date) => {
-    const {top5, list, labels, values} = await getTypeData(url, date);
+    const {top5, list, labels, values} = await getTypeData(1, date);
 
     this.setState({ data: list, top5: top5, labels: labels, values: values });
   }

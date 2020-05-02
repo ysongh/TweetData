@@ -26,3 +26,8 @@ yarn.lock
 package-lock.json
 
 sample_data_for_mockup.json
+global_daily_data.json
+global_daily_emojis.json
+global_daily_hashtags.json
+global_daily_symptoms.json
+global_daily_terms.json

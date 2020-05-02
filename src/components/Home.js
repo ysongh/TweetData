@@ -3,13 +3,6 @@ import { getTypeAllData } from '../api';
 
 import Chart from './charts/Charts';
 
-const urls = [
-  "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_terms.json",
-  "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_symptoms.json",
-  "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_hashtags.json",
-  "https://raw.githubusercontent.com/yenlow/tmp_funicular/master/data/global_daily_emojis.json"
-];
-
 class Home extends Component{
   state = {
       data: [],
@@ -21,13 +14,13 @@ class Home extends Component{
   }
 
   async componentDidMount(){
-    const {dates, values, top5List} = await getTypeAllData(urls[this.state.urlNumber]);
+    const {dates, values, top5List} = await getTypeAllData(this.state.urlNumber);
 
     this.setState({ labels: dates,  values: values, top5List: top5List});
   }
 
   onChangeDate = async (num) => {
-    const {dates, values, top5List} = await getTypeAllData(urls[num]);
+    const {dates, values, top5List} = await getTypeAllData(num);
 
     this.setState({ labels: dates,  values: values, top5List: top5List});
   }
