@@ -33,8 +33,8 @@ class Home extends Component{
             <div className="col s12 m6 l4">
                 <label>See most frequent entities mentioned that day</label>
                 <select className="browser-default" defaultValue={this.state.urlNumber} onChange={(e) => this.onChangeDate(e.target.value)}>
-                  <option value="0">Term</option>
-                  <option value="1">Symptom</option>
+                  <option value="0">Symptom</option>
+                  <option value="1">Term</option>
                   <option value="2">Hash Tag</option>
                   <option value="3">Emoji</option>
                 </select>
