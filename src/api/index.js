@@ -158,6 +158,10 @@ export const getTypeData = async (num, date) => {
         const top5 = list.slice(0, 5);
 
         let { labels, values } = donutData(top5, total);
+        console.log(JSON.stringify(top5))
+        console.log(JSON.stringify(list))
+        console.log(JSON.stringify(labels))
+        console.log(JSON.stringify(values))
 
         return {top5, list, labels, values, dates};
 
@@ -169,7 +173,7 @@ export const getTypeData = async (num, date) => {
 
 export const getScores = async () => {
     try{
-        const resData = globalDailyData.data.filter(key => key.sentiment_score);
+        const resData = globalDailyData;
         const cases = resData.map(key => key.cases);
         const dates = resData.map(key => key.index);
 

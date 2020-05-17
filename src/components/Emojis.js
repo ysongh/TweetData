@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import CountUp from 'react-countup';
-import { getTypeData } from '../api';
+//import { getTypeData } from '../api';
 
 import Donut from './charts/Donut';
+
+import { emtop5, emlist, emlabels, emvalues } from '../api/someData';
 
 class Emojis extends Component{
   state = {
@@ -15,30 +17,23 @@ class Emojis extends Component{
 
   }
   async componentDidMount(){
-    const {top5, list, labels, values, dates} = await getTypeData(3, this.state.date);
+    //const {top5, list, labels, values, dates} = await getTypeData(3, this.state.date);
 
-    this.setState({ data: list, top5: top5, labels: labels, values: values, dates: dates });
+    this.setState({ data: emlist, top5: emtop5, labels: emlabels, values: emvalues, dates: [] });
   }
 
-  onChangeDate = async (date) => {
-    const {top5, list, labels, values} = await getTypeData(3, date);
+//   onChangeDate = async (date) => {
+//     const {top5, list, labels, values} = await getTypeData(3, date);
 
-    this.setState({ data: list, top5: top5, labels: labels, values: values });
-  }
+//     this.setState({ data: list, top5: top5, labels: labels, values: values });
+//   }
 
   render(){
     return (
       <div className="container">
         <div className="row mt-2">
-            <h1 className="title col s12 m6 l8">Emoji</h1>
-            <div className="col s12 m6 l4">
-                <label>Select Date</label>
-                <select className="browser-default" defaultValue={this.state.date} onChange={(e) => this.onChangeDate(e.target.value)}>
-                    {this.state.dates.map(i => {
-                        return <option key={i} value={i}>{i}</option>
-                    })}
-                </select>
-            </div>
+            <h1 className="title col s12 m6">Emoji</h1>
+            <h2 className="title col s12 m6 right-align">April 25, 2020</h2>
         </div>
         <div className="row">
             <div className="card col s12 m6">

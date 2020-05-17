@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import CountUp from 'react-countup';
-import { getTypeData } from '../api';
+//import { getTypeData } from '../api';
 
 import Donut from './charts/Donut';
 //import wordImage from '../assets/wc_hashtags.png';
+
+import { hashtop5, hashlist, hashlabels, hashvalues } from '../api/someData';
 
 class HashTag extends Component{
   state = {
@@ -16,30 +18,23 @@ class HashTag extends Component{
 
   }
   async componentDidMount(){
-    const {top5, list, labels, values, dates} = await getTypeData(2, this.state.date);
+    //const {top5, list, labels, values, dates} = await getTypeData(2, this.state.date);
 
-    this.setState({ data: list, top5: top5, labels: labels, values: values, dates: dates });
+    this.setState({ data: hashlist, top5: hashtop5, labels: hashlabels, values: hashvalues, dates: [] });
   }
 
-  onChangeDate = async (date) => {
-    const {top5, list, labels, values} = await getTypeData(2, date);
+//   onChangeDate = async (date) => {
+//     const {top5, list, labels, values} = await getTypeData(2, date);
 
-    this.setState({ data: list, top5: top5, labels: labels, values: values });
-  }
+//     this.setState({ data: list, top5: top5, labels: labels, values: values });
+//   }
 
   render(){
     return (
       <div className="container">
         <div className="row mt-2">
-            <h1 className="title col s12 m6 l8">Hash Tag</h1>
-            <div className="col s12 m6 l4">
-                <label>Select Date</label>
-                <select className="browser-default" defaultValue={this.state.date} onChange={(e) => this.onChangeDate(e.target.value)}>
-                    {this.state.dates.map(i => {
-                        return <option key={i} value={i}>{i}</option>
-                    })}
-                </select>
-            </div>
+            <h1 className="title col s12 m6 ">Hash Tag</h1>
+            <h2 className="title col s12 m6 right-align">April 25, 2020</h2>
         </div>
         <div className="row">
             <div className="card col s12 m6">

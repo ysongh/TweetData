@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import CountUp from 'react-countup';
-import { getTypeData } from '../api';
+//import { getTypeData } from '../api';
 
 import Donut from './charts/Donut';
 //import wordImage from '../assets/wc_symptoms.png';
+
+import { symtop5, symlist, symlabels, symvalues } from '../api/someData';
 
 class Symptom extends Component{
   state = {
@@ -16,30 +18,23 @@ class Symptom extends Component{
 
   }
   async componentDidMount(){
-    const {top5, list, labels, values, dates} = await getTypeData(0, this.state.date);
+    //const {top5, list, labels, values, dates} = await getTypeData(0, this.state.date);
 
-    this.setState({ data: list, top5: top5, labels: labels, values: values, dates: dates });
+    this.setState({ data: symlist, top5: symtop5, labels: symlabels, values: symvalues, dates: [] });
   }
 
-  onChangeDate = async (date) => {
-    const {top5, list, labels, values} = await getTypeData(0, date);
+//   onChangeDate = async (date) => {
+//     const {top5, list, labels, values} = await getTypeData(0, date);
 
-    this.setState({ data: list, top5: top5, labels: labels, values: values });
-  }
+//     this.setState({ data: list, top5: top5, labels: labels, values: values });
+//   }
 
   render(){
     return (
       <div className="container">
         <div className="row mt-2">
-            <h1 className="title col s12 m6 l8">Symptom</h1>
-            <div className="col s12 m6 l4">
-                <label>Select Date</label>
-                <select className="browser-default" defaultValue={this.state.date} onChange={(e) => this.onChangeDate(e.target.value)}>
-                    {this.state.dates.map(i => {
-                        return <option key={i} value={i}>{i}</option>
-                    })}
-                </select>
-            </div>
+            <h1 className="title col s12 m6">Symptom</h1>
+            <h2 className="title col s12 m6 right-align">April 25, 2020</h2>
         </div>
         <div className="row">
             <div className="card col s12 m6">
